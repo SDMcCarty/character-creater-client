@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
 import RegistrationFrom from '../RegistrationForm/RegistrationForm';
+import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path='/register'>
           <RegistrationFrom />
+        </Route>
+        <Route path='randomize'>
+          <RandomizeCharacter />
         </Route>
       </header>
     </main>
