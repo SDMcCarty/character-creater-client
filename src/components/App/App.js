@@ -2,8 +2,9 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
-import RegistrationFrom from '../RegistrationForm/RegistrationForm';
+import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
+import CharacterList from '../CharacterList/CharacterList';
 
 function App() {
   return (
@@ -16,10 +17,13 @@ function App() {
           <LoginForm />
         </Route>
         <Route path='/register'>
-          <RegistrationFrom />
+          <RegistrationForm />
         </Route>
-        <Route path='randomize'>
+        <Route path='/randomize'>
           <RandomizeCharacter />
+        </Route>
+        <Route path='/character-list'>
+          <CharacterList />
         </Route>
       </header>
     </main>

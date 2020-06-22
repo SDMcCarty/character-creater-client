@@ -12,14 +12,14 @@ class RandomizeCharacter extends Component {
     return (
       <>
         <p>Saved characters can be edited later</p>
-        <section class="character">
+        <section class='character'>
           <p>Name: [Randomized Initials]</p>
           <p>Major Event: [Randomized Event]</p>
         </section>
 
-        <Link path='/character-list'><button type="submit" onSubmit={this.handleSubmit}>Save Character</button></Link>
-        <Link path='/create'><button type="button">Delete and start again</button></Link>
-        <Link path='/randomize'><button type="button">Randomize Character</button></Link>
+        <Link to='/character-list'><button type='submit' onSubmit={this.handleSubmit}>Save Character</button></Link>
+        <Link to='/create'><button type='button'>Delete and start again</button></Link>
+        <Link to='/randomize'><button type='button'>Randomize Character</button></Link>
       </>
     )
   }
