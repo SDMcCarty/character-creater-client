@@ -1,10 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 import CharacterList from '../CharacterList/CharacterList';
+import CharacterSmall from '../CharacterSmall/CharacterSmall';
+import CreateCharacter from '../CreateCharacter/CreateCharacter';
 
 function App() {
   return (
@@ -26,6 +28,17 @@ function App() {
           <CharacterList />
         </Route>
       </header>
+      {/* <CharacterSmall /> */}
+      {/* <Route to='/create'>
+        <button type='button'>
+          Create Character
+          <CreateCharacter />
+        </button>
+      </Route> */}
+      <Route path='/create'>
+        <CreateCharacter />
+      </Route>
+      {/* <Link to='/create'><button type='button'>Create Character</button></Link> */}
     </main>
   );
 }
