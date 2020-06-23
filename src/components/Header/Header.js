@@ -7,7 +7,7 @@ class Header extends Component {
 
   render() {
     return <>
-      <nav classname='Header'>
+      <nav className='Header'>
         <h1>
           <Link to='/'>
             Character Creater

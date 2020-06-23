@@ -29,13 +29,13 @@ function App() {
         </Route>
       </header>
       {/* <CharacterSmall /> */}
-      {/* <Route to='/create'>
+      {/* <Route path='/create'>
         <button type='button'>
           Create Character
           <CreateCharacter />
         </button>
       </Route> */}
-      <Route path='/create'>
+      <Route  exact path='/create'>
         <CreateCharacter />
       </Route>
       {/* <Link to='/create'><button type='button'>Create Character</button></Link> */}

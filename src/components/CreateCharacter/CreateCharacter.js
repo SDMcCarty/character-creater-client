@@ -14,11 +14,11 @@ class CreateCharacter extends Component {
           <input type='text' name='lastname' id='lastname' />
           <span>If left blank, you will be given a randomized initial letter</span>
         </fieldset>
-        <fieldst>
+        <fieldset>
           <legend>Major Event</legend>
           <label htmlFor='majorevent'>Major Event</label>
           <input type='text' name='majorevent' id='majorevent' />
-        </fieldst>
+        </fieldset>
         <Link to='review-character'><button type='button'>Review Character</button></Link>
       </form>
     )
