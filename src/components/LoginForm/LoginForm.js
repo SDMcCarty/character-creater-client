@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ class LoginForm extends Component {
 
   state = { error: null}
 
-  handleSubmitJwtAuth = (e) => {
+  handleSubmitJwtAuth = e => {
     e.preventDefault()
     this.setState({ error: null })
     const { user_name, password } = e.target
@@ -22,7 +21,6 @@ class LoginForm extends Component {
       .then(res => {
         user_name.value = ''
         password.value = ''
-        TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess()
       })
       .catch(res => {
@@ -44,7 +42,7 @@ class LoginForm extends Component {
           <input required type='password' name='password' id='LoginForm__password' />
           <Link to='/register'>Not a member? Signup now!</Link>
           <button type='submit'>Log In</button>
-          {/* <Link to='/'><button type='button'>Cancel</button></Link> */}
+          <Link to='/'><button type='button'>Cancel</button></Link>
       </form>
     )
   }

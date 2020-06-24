@@ -10,17 +10,16 @@ class LoginPage extends Component {
   }
 
   handleLoginSuccess = () => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
-    history.push(destination)
+    const { history } = this.props
+    history.push('/')
   }
 
   render() {
     return (
-      <>
+      <section className='LoginPage'>
         <h2>Log In</h2>
-        <LoginForm onsuccess={this.handleLoginSuccess} />
-      </>
+        <LoginForm onLoginSuccess={this.handleLoginSuccess} />
+      </section>
     )
   }
 

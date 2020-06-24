@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import LoginPage from '../../routes/LoginPage';
-import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 import CharacterList from '../CharacterList/CharacterList';
+import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
 import './App.css'
 
@@ -20,8 +20,7 @@ class App extends Component {
         </header>
         <main className='App__main'>
           <Switch>
-            <Route path='/login'>
-              <LoginPage />
+            <Route path='/login' component={LoginPage}>
             </Route>
             <Route path='/register'>
               <RegistrationForm />
@@ -35,6 +34,7 @@ class App extends Component {
             <Route  exact path='/create'>
               <CreateCharacter />
             </Route>
+            <Route path='/characters/:character_id' component={Character} />
             <Route exact path='/'>
               <Link to='/create'><button type='button'>Create Character</button></Link>
             </Route>
