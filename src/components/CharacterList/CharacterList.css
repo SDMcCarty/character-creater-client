@@ -1,0 +1,14 @@
+ul {
+  padding-top: 8px;
+  margin: 5px;
+  font-size: 1.1em;
+  list-style: none;
+}
+
+.characterList-link {
+  text-decoration: none;
+}
+
+li:hover {
+  color: blue;
+}

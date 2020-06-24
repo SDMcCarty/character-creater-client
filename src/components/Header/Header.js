@@ -7,8 +7,8 @@ class Header extends Component {
 
   render() {
     return <>
-        <h1>
-          <Link to='/'>
+        <h1 className='header'>
+          <Link to='/' className='header-link'>
             Character Creater
           </Link>
         </h1>

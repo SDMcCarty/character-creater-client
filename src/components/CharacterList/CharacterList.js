@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
-
+import './CharacterList.css'
 
 class CharacterList extends Component {
 
@@ -62,7 +62,7 @@ class CharacterList extends Component {
       <>
         {characters.map(character => 
           <ul>
-            <Link to='/{character.id}'>
+            <Link to='/{character.id}' className='characterList-link'>
             <li key={character.id} className='character-li' id={character.id}>
               <span className='character-name'>Name: {character.first_name} {character.last_name}</span>
               <p className='character-major-trait'>Major Trait: {character.major_trait}</p>
