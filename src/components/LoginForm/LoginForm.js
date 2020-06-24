@@ -38,8 +38,6 @@ class LoginForm extends Component {
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <fieldset>
-          <legend>Log In</legend>
           <label htmlFor='LoginForm__user_name'>User Name</label>
           <input required type='text' name='user_name' id='LoginForm__user_name' />
           <label htmlFor='LoginForm__password'>Password</label>
@@ -47,7 +45,6 @@ class LoginForm extends Component {
           <Link to='/register'>Not a member? Signup now!</Link>
           <button type='submit'>Log In</button>
           {/* <Link to='/'><button type='button'>Cancel</button></Link> */}
-        </fieldset>
       </form>
     )
   }
