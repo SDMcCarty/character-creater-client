@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service'
 
 class RegistrationFrom extends Component {
@@ -20,6 +19,9 @@ class RegistrationFrom extends Component {
       email.value = ''
       this.props.onRegistartionSuccess()
     })
+    .catch(res => {
+      this.setState({ error: res.error })
+    })
   }
 
   render() {
@@ -29,8 +31,6 @@ class RegistrationFrom extends Component {
         className='RegistrationForm'
         onSumbit={this.handleSubmit}
       >
-        <fieldset>
-          <legend>Sign Up</legend>
           <div role='alert'>
             {error && <p className='red'>{error}</p>}
           </div>
@@ -56,8 +56,6 @@ class RegistrationFrom extends Component {
             id='email' 
           />
           <button type='submit'>Sign Up</button>
-          {/* <button type='button'><Link path='/'>Cancel</Link></button> */}
-        </fieldset>
       </form>
     )
   }

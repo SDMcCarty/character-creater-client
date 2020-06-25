@@ -17,6 +17,7 @@ class Character extends Component {
       console.log(characters.filter(chara => chara.id === this.props.match.params.character_id))
       let id = this.props.match.params.character_id
       console.log(id)
+      // eslint-disable-next-line eqeqeq
       let character = characters.find(chara => chara.id == id)
       console.log(character)
 
