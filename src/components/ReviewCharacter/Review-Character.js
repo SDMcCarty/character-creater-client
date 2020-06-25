@@ -22,7 +22,6 @@ class ReviewCharacter extends Component {
           <p>Major Event: {this.props.newCharacter.major_trait}</p>
         </div>
 
-        {/* <Link to='/character-list'><button type='submit' onSubmit={this.handleSubmit}>Save Character</button></Link> */}
         <button type='submit' onClick={this.handleSubmit}>Save Character</button>
         <Link to='/create'><button type='button'>Delete and start again</button></Link>
         <Link to='/randomize'><button type='button'>Randomize Character</button></Link>

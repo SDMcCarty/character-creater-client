@@ -14,12 +14,7 @@ import './App.css'
 class App extends Component {
   state = { 
     charaList: [],
-    newChara: 
-      {
-        first_name: 'Thim',
-        last_name: 'Tham',
-        major_trait: 'Smol'
-      },
+    newChara: {},
     hasError: false
   }
 
@@ -72,7 +67,9 @@ class App extends Component {
             major_event: ''
           }
         })
-        // .then(() => this.props.history.push('/character-list'))
+      })
+      .then(() => {
+        this.history.push('/review-character')
       })
       .catch(err => {
         console.log(err)
@@ -80,6 +77,15 @@ class App extends Component {
           hasError: err
         })
       })
+  }
+
+  makeNewCharacter = (newCharacterInfo) => {
+    console.log(newCharacterInfo)
+    this.setState({
+      newChara: {
+        ...newCharacterInfo
+      }
+    })
   }
 
 
@@ -109,7 +115,7 @@ class App extends Component {
             <Route path='/character-list'>
               <CharacterList />
             </Route>
-            <Route  exact path='/create' component={CreateCharacter} />
+            <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>}/>
             <Route path='/characters/:character_id' component={Character} />
             <Route path='/review-character' render={routeProps => <ReviewCharacter {...routeProps} newCharacter={this.state.newChara} saveNewCharacter={this.saveNewCharacter}/>} />
             <Route exact path='/'>

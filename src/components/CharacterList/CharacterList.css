@@ -9,6 +9,11 @@ ul {
   text-decoration: none;
 }
 
+li {
+  padding: 5px;
+  margin: 5px;
+}
+
 li:hover {
   color: blue;
 }
