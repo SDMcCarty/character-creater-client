@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   saveNewCharacter = () => {
+    console.log('saveNewCharacter has been called')
     fetch('http://localhost:8000/api/characters', {
       method: 'POST',
       headers: {
@@ -51,9 +52,9 @@ class App extends Component {
         'authorization': `bearer ${TokenService.getAuthToken}`
       },
       body: JSON.stringify({
-        first_name: this.state.newCharacter.first_name,
-        last_name: this.state.newCharacter.last_name,
-        major_trait: this.state.newCharacter.major_trait,
+        first_name: this.state.newChara.first_name,
+        last_name: this.state.newChara.last_name,
+        major_trait: this.state.newChara.major_trait,
         status: 'completed'
       })
     })
@@ -70,7 +71,6 @@ class App extends Component {
             major_event: ''
           }
         })
-
       })
       .catch(err => 
         this.setState({
