@@ -29,7 +29,7 @@ class RegistrationFrom extends Component {
     return (
       <form
         className='RegistrationForm'
-        onSumbit={this.handleSubmit}
+        onSubmit={this.handleSubmit}
       >
           <div role='alert'>
             {error && <p className='red'>{error}</p>}
