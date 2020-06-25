@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    //probs need if logged in logic
     fetch('http://localhost:8000/api/characters', {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -49,19 +50,19 @@ class App extends Component {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken}`
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
         first_name: this.state.newChara.first_name,
         last_name: this.state.newChara.last_name,
         major_trait: this.state.newChara.major_trait,
-        status: 'completed'
+        status: "completed"
       })
     })
       .then(res => 
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
-          : res.json()
+          : res.json().then(console.log)
       )
       .then(() => {
         this.setState({
@@ -71,12 +72,14 @@ class App extends Component {
             major_event: ''
           }
         })
+        // .then(() => this.props.history.push('/character-list'))
       })
-      .catch(err => 
+      .catch(err => {
+        console.log(err)
         this.setState({
           hasError: err
         })
-      )
+      })
   }
 
 

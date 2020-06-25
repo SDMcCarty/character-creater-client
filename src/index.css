@@ -16,3 +16,13 @@ header {
   padding: 5px;
 }
 
+button {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+input {
+  padding: 3px;
+  margin: 5px;
+}

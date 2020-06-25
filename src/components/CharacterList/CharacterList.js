@@ -32,45 +32,21 @@ class CharacterList extends Component {
       })
   }
 
-  makeLis = () => {
-    let characters = this.state.charaList.map(chara => {
-      return `<Link to='/:character_id'>
-               <li className='character-snapshot'>
-                 <h2 className='character-name'>${chara.first_name} ${chara.last_name}</h2>
-                 <h3 className='character-major-trait'>${chara.major_trait}</h3>
-               </li>
-             </Link>`
-        })
-    console.log(characters)
-    return characters
-        
-    };
-    // <Link to={`character/${:character.id}`} className='Character'>
-      // <Link to='/characterId'>
-      //   <li className='character-snapshot'>
-      //     <h2 className='character-name'>Character Name</h2>
-      //     <h3 className='character-event'>Main Event</h3>
-      //   </li>
-      // </Link>
-  
-
   render() {
     console.log(this.state)
     const characters = this.state.charaList
     console.log(characters)
     return (
-      <>
+      <ul>
         {characters.map(character => 
-          <ul>
-            <Link to='/{character.id}' className='characterList-link'>
-            <li key={character.id} className='character-li' id={character.id}>
+            <Link key={character.id} to='/{character.id}' className='characterList-link'>
+            <li className='character-li' id={character.id}>
               <span className='character-name'>Name: {character.first_name} {character.last_name}</span>
               <p className='character-major-trait'>Major Trait: {character.major_trait}</p>
             </li>
           </Link>
-          </ul>
         )}
-      </>
+      </ul>
     )
   }
 }
