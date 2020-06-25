@@ -31,7 +31,6 @@ class App extends Component {
         return res.json()
       })
       .then(data => {
-        console.log(data)
         this.setState({ charaList: data })
       }).catch(err => {
         this.setState({ hasError: err })
@@ -57,7 +56,7 @@ class App extends Component {
       .then(res => 
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
-          : res.json().then(console.log)
+          : res.json()
       )
       .then(() => {
         this.setState({
@@ -80,7 +79,6 @@ class App extends Component {
   }
 
   makeNewCharacter = (newCharacterInfo) => {
-    console.log(newCharacterInfo)
     this.setState({
       newChara: {
         ...newCharacterInfo
@@ -91,13 +89,13 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
-    let value = {
-      state: this.state,
-      saveNewCharacter: this.saveNewCharacter
-    }
-    console.log(value)
-    console.log(this.state.newChara)
+    // console.log(this.state)
+    // let value = {
+    //   state: this.state,
+    //   saveNewCharacter: this.saveNewCharacter
+    // }
+    // console.log(value)
+    // console.log(this.state.newChara)
     return (
       <div className='App'>
         <header className='App__header'>
@@ -112,8 +110,7 @@ class App extends Component {
             <Route path='/randomize'>
               <RandomizeCharacter />
             </Route>
-            <Route path='/character-list'>
-              <CharacterList />
+            <Route path='/character-list' render={routeProps => <CharacterList {...routeProps} characters={this.state.charaList}/>}>
             </Route>
             <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>}/>
             <Route path='/characters/:character_id' component={Character} />
