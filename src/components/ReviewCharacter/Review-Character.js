@@ -8,6 +8,9 @@ class ReviewCharacter extends Component {
     e.preventDefault()
     console.log('handleSubmit was called')
     this.props.saveNewCharacter()
+    .then(() => {
+      this.props.history.push('/character-list')
+    })
   }
 
   render() {

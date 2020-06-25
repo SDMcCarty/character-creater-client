@@ -3,13 +3,14 @@ import { Route, Switch, Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import Header from '../Header/Header';
 import LoginPage from '../../routes/LoginPage';
-import RegistrationForm from '../RegistrationForm/RegistrationForm';
+import RegisterPage from '../../routes/RegisterPage';
 import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 import CharacterList from '../CharacterList/CharacterList';
 import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
 import ReviewCharacter from '../ReviewCharacter/Review-Character'
 import './App.css'
+
 
 class App extends Component {
   state = { 
@@ -40,7 +41,7 @@ class App extends Component {
 
   saveNewCharacter = () => {
     console.log('saveNewCharacter has been called')
-    fetch('http://localhost:8000/api/characters', {
+    return fetch('http://localhost:8000/api/characters', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -67,9 +68,6 @@ class App extends Component {
           }
         })
       })
-      .then(() => {
-        this.history.push('/review-character')
-      })
       .catch(err => {
         console.log(err)
         this.setState({
@@ -89,7 +87,7 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.state)
+    // console.log(this.state.charaList)
     // let value = {
     //   state: this.state,
     //   saveNewCharacter: this.saveNewCharacter
@@ -104,16 +102,14 @@ class App extends Component {
         <main className='App__main'>
           <Switch>
             <Route path='/login' component={LoginPage} />
-            <Route path='/register'>
-              <RegistrationForm />
-            </Route>
+            <Route path='/register' component={RegisterPage} />
             <Route path='/randomize'>
               <RandomizeCharacter />
             </Route>
             <Route path='/character-list' render={routeProps => <CharacterList {...routeProps} characters={this.state.charaList}/>}>
             </Route>
             <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>}/>
-            <Route path='/characters/:character_id' component={Character} />
+            <Route path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList}/>}/>
             <Route path='/review-character' render={routeProps => <ReviewCharacter {...routeProps} newCharacter={this.state.newChara} saveNewCharacter={this.saveNewCharacter}/>} />
             <Route exact path='/'>
               <Link to='/create'><button type='button'>Create Character</button></Link>
