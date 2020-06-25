@@ -19,7 +19,7 @@ class CreateCharacter extends Component {
           <label htmlFor='majorevent'>Major Event</label>
           <input type='text' name='majorevent' id='majorevent' />
         </fieldset>
-        <Link to='review-character'><button type='button'>Review Character</button></Link>
+        <Link to='/review-character'><button type='button'>Review Character</button></Link>
       </form>
     )
   }

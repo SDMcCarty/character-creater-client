@@ -7,6 +7,7 @@ import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 import CharacterList from '../CharacterList/CharacterList';
 import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
+import ReviewCharacter from '../ReviewCharacter/Review-Character'
 import './App.css'
 
 class App extends Component {
@@ -31,10 +32,9 @@ class App extends Component {
             <Route path='/character-list'>
               <CharacterList />
             </Route>
-            <Route  exact path='/create'>
-              <CreateCharacter />
-            </Route>
+            <Route  exact path='/create' component={CreateCharacter} />
             <Route path='/characters/:character_id' component={Character} />
+            <Route path='/review-character' component={ReviewCharacter} />
             <Route exact path='/'>
               <Link to='/create'><button type='button'>Create Character</button></Link>
             </Route>

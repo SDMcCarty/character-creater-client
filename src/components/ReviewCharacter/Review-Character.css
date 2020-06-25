@@ -1,0 +1,11 @@
+.review-character-section {
+  margin: 5px;
+  padding: 15px;
+  line-height: 1.2em;;
+}
+
+button {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
