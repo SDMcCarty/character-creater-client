@@ -6,15 +6,21 @@ class ReviewCharacter extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.saveNewCharacter()
+      .then(() => this.props.history.push('/character-list'))
+
   }
 
   render() {
+    console.log('props', this.props)
+    console.log('new character', this.props.newCharacter)
+    console.log('save chara', this.props.saveNewCharacter)
     return (
       <section className='review-character-section'>
         <p>Saved characters can be edited later</p>
         <div className='character'>
-          <p>Name: [Name or Initials]</p>
-          <p>Major Event: [Event]</p>
+          <p>Name: {this.props.newCharacter.first_name} {this.props.newCharacter.last_name}</p>
+          <p>Major Event: {this.props.newCharacter.major_trait}</p>
         </div>
 
         <Link to='/character-list'><button type='submit' onSubmit={this.handleSubmit}>Save Character</button></Link>
