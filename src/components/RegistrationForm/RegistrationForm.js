@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service'
 
 class RegistrationFrom extends Component {
+  static defaultProps = {
+    onRegistartionSuccess: () => {}
+  }
+
   state = { error: null }
 
   handleSubmit = (e) => {
     e.preventDefault()
     const { user_name, password, email } = e.target
+
     this.setState({ error: null })
     AuthApiService.postUser({
       user_name: user_name.value,
@@ -34,21 +39,21 @@ class RegistrationFrom extends Component {
           <div role='alert'>
             {error && <p className='red'>{error}</p>}
           </div>
-          <label htmlFor='user_name'>User Name</label>
+          <label htmlFor='RF__user_name'>User Name</label>
           <input 
             required 
             type='text' 
             name='user_name' 
             id='user_name' 
           />
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='RF__password'>Password</label>
           <input 
             required 
             type='password' 
             name='password' 
             id='password' 
           />
-          <label htmlFor='email'>Email address</label>
+          <label htmlFor='RF__email'>Email address</label>
           <input 
             required 
             type='email' 

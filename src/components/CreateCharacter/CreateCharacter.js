@@ -32,10 +32,6 @@ class CreateCharacter extends Component {
   }
   
   render() {
-    console.log(this.state.first_name)
-    console.log(this.state.last_name)
-    console.log(this.state.major_trait)
-    console.log(this.state)
     return(
       <form>
         <fieldset>

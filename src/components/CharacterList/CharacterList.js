@@ -5,7 +5,6 @@ import './CharacterList.css'
 class CharacterList extends Component {
 
   render() {
-    console.log(this.props.characters)
     const characters = this.props.characters
     return (
       <ul>

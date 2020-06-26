@@ -26,3 +26,7 @@ input {
   padding: 3px;
   margin: 5px;
 }
+
+.red {
+  color: red;
+}
