@@ -51,7 +51,12 @@ class App extends Component {
       body: JSON.stringify({
         first_name: this.state.newChara.first_name,
         last_name: this.state.newChara.last_name,
+        age: this.state.newChara.age,
+        sex: this.state.newChara.sex,
         major_trait: this.state.newChara.major_trait,
+        motivation: this.state.newChara.motivation,
+        fear: this.state.newChara.fear,
+        history: this.state.newChara.history,
         status: "completed"
       })
     })
@@ -66,7 +71,12 @@ class App extends Component {
           newChara: {
             first_name: '',
             last_name: '',
-            major_event: ''
+            age: '',
+            sex: '',
+            major_event: '',
+            motivation: '',
+            fear: '',
+            status: '',
           }
         })
       })
@@ -87,7 +97,6 @@ class App extends Component {
   }
 
   deleteCharacter = (characterId) => {
-    console.log('deleteCharacter called')
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
       headers: {
@@ -104,9 +113,8 @@ class App extends Component {
       return res.json
     })
     .then(() => {
-      console.log(this.state.charaList.filter(chara => chara.id != characterId))
-      console.log(typeof characterId)
       this.setState({
+        // eslint-disable-next-line eqeqeq
         charaList: this.state.charaList.filter(chara => chara.id != characterId)
       })
     })
