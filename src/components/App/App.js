@@ -88,7 +88,7 @@ class App extends Component {
 
   deleteCharacter = (characterId) => {
     console.log('deleteCharacter called')
-    fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
+    return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
@@ -104,8 +104,10 @@ class App extends Component {
       return res.json
     })
     .then(() => {
+      console.log(this.state.charaList.filter(chara => chara.id != characterId))
+      console.log(typeof characterId)
       this.setState({
-        charaList: this.state.charaList.filter(chara => chara.id !== characterId)
+        charaList: this.state.charaList.filter(chara => chara.id != characterId)
       })
     })
     .catch(err => {

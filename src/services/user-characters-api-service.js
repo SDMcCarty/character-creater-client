@@ -3,7 +3,7 @@ import config from '../config'
 
 const UserCharactersApiService = {
   getCharacters() {
-    fetch('http://localhost:8000/api/characters', {
+    fetch(`${config.API_ENDPOINT}/characters`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }

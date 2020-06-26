@@ -22,7 +22,8 @@ class Character extends Component {
       let id = this.props.match.params.character_id
       // eslint-disable-next-line eqeqeq
       let character = characters.find(chara => chara.id == id)
-      
+      if(!character) 
+        return <p>Redirecting</p>
       return (
         <section className='character'>
           <p>Name: {character.first_name} {character.last_name}</p>
