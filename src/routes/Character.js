@@ -27,7 +27,12 @@ class Character extends Component {
       return (
         <section className='character'>
           <p>Name: {character.first_name} {character.last_name}</p>
+          <p>Age: {character.age}</p>
+          <p>Sex: {character.sex}</p>
           <p>Major Trait: {character.major_trait}</p>
+          <p>Motivation: {character.motivation}</p>
+          <p>Fear: {character.fear}</p>
+          <p>History: {character.history}</p>
           {/* <Link to='/edit-character'><button type='buttom'>Edit Character</button></Link> */}
           <Link to='/character-list'><button type='button' onClick={this.handleClick}>Delete Character</button></Link>
         </section>

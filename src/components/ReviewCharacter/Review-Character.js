@@ -22,7 +22,12 @@ class ReviewCharacter extends Component {
         <p>Saved characters can be edited later</p>
         <div className='character'>
           <p>Name: {this.props.newCharacter.first_name} {this.props.newCharacter.last_name}</p>
+          <p>Age: {this.props.newCharacter.age}</p>
+          <p>Sex: {this.props.newCharacter.sex}</p>
           <p>Major Event: {this.props.newCharacter.major_trait}</p>
+          <p>Motivation: {this.props.newCharacter.motivation}</p>
+          <p>Fear: {this.props.newCharacter.history}</p>
+          <p>History: {this.props.newCharacter.history}</p>
         </div>
 
         <button type='submit' onClick={this.handleSubmit}>Save Character</button>
