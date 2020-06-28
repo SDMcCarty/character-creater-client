@@ -3,3 +3,19 @@
   padding: 15px;
   line-height: 1.2em;;
 }
+
+.saved-character-warning {
+  font-size: 85%;
+}
+
+.p-label {
+  font-size: 120%;
+}
+
+.character {
+  line-height: 1.3em;
+}
+
+p {
+  margin-bottom: 8px;
+}

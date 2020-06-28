@@ -16,7 +16,7 @@ class RegisterPage extends Component {
   render() {
     return (
       <section className='RegistrationPage'>
-        <h2>Register</h2>
+        <h2 className='page-heading'>Register</h2>
         <RegistrationForm onRegisterationSuccess={this.handleRegistrationSuccess} />
       </section>
     )

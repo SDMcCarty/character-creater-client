@@ -17,7 +17,7 @@ class LoginPage extends Component {
   render() {
     return (
       <section className='LoginPage'>
-        <h2>Log In</h2>
+         <h2 className='page-heading'>Log in</h2>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </section>
     )

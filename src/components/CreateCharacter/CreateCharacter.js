@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CreateCharacter.css'
 
 class CreateCharacter extends Component {
   state = {
@@ -68,78 +69,86 @@ class CreateCharacter extends Component {
   
   render() {
     return(
-      <form>
-        <fieldset>
-          <legend>The Basics</legend>
-          <label htmlFor='first_name'>First Name</label>
-          <input 
-            type='text' 
-            value={this.state.first_name}
-            name='first_name' 
-            id='first_name' 
-            onChange={(e) => this.setFirstName(e.target.value)}
-          />
-          <label htmlFor='last_name'>Last Name</label>
-          <input 
-            type='text' 
-            value={this.state.last_name} 
-            name='last_name' 
-            id='last_name' 
-            onChange={(e) => this.setLastName(e.target.value)}
-          />
-          <label htmlFor='age'>Age</label>
-          <input
-            type='text'
-            value={this.state.age}
-            name='age'
-            id='age'
-            onChange={(e) => this.setAge(e.target.value)}
-          />
-          <label htmlFor='sex'>Sex</label>
-          <input
-            type='text'
-            value={this.state.sex}
-            name='sex'
-            id='sex'
-            onChange={(e) => this.setSex(e.target.value)}
-          />
-        </fieldset>
-        <fieldset>
-          <legend>The Personality</legend>
-          <label htmlFor='major_trait'>Major Trait</label>
-          <input 
-            type='text' 
-            value={this.state.major_trait}
-            name='major_trait' 
-            id='major_trait' 
-            onChange={(e) => this.setMajorTrait(e.target.value)}
-          />
-          <label htmlFor='motivation'>Motivation</label>
-          <input
-            type='text'
-            value={this.state.motivation}
-            name='motivation'
-            id='motivation'
-            onChange={(e) => this.setMotivation(e.target.value)}
-          />
-          <label htmlFor='fear'>Fear</label>
-          <input
-            type='text'
-            value={this.state.fear}
-            name='fear'
-            id='fear'
-            onChange={(e) => this.setFear(e.target.value)}
-          />
-          <label htmlFor='history'>History</label>
-          <textarea
-            value={this.state.history}
-            name='history'
-            id='history'
-            onChange={(e) => this.setHistory(e.target.value)}
-          />
-        </fieldset>
-        <button type='button' onClick={this.handleClick}>Review Character</button>
-      </form>
+      <section aria-label='create character form'>
+        <h2 className='page-heading'>Create Your Character!</h2>
+        <form>
+          <fieldset>
+            <legend>The Basics</legend>
+            <label htmlFor='first_name'>First Name</label>
+            <input 
+              required
+              type='text' 
+              value={this.state.first_name}
+              name='first_name' 
+              id='first_name' 
+              onChange={(e) => this.setFirstName(e.target.value)}
+            />
+            <label htmlFor='last_name'>Last Name</label>
+            <input 
+              required
+              type='text' 
+              value={this.state.last_name} 
+              name='last_name' 
+              id='last_name' 
+              onChange={(e) => this.setLastName(e.target.value)}
+            />
+            <label htmlFor='age'>Age</label>
+            <input
+              type='text'
+              value={this.state.age}
+              name='age'
+              id='age'
+              onChange={(e) => this.setAge(e.target.value)}
+            />
+            <label htmlFor='sex'>Sex</label>
+            <input
+              type='text'
+              value={this.state.sex}
+              name='sex'
+              id='sex'
+              onChange={(e) => this.setSex(e.target.value)}
+            />
+          </fieldset>
+          <fieldset>
+            <legend>The Personality</legend>
+            <label htmlFor='major_trait'>Major Trait</label>
+            <input 
+              required
+              type='text' 
+              value={this.state.major_trait}
+              name='major_trait' 
+              id='major_trait' 
+              onChange={(e) => this.setMajorTrait(e.target.value)}
+            />
+            <label htmlFor='motivation'>Motivation</label>
+            <input
+              type='text'
+              value={this.state.motivation}
+              name='motivation'
+              id='motivation'
+              onChange={(e) => this.setMotivation(e.target.value)}
+            />
+            <label htmlFor='fear'>Fear</label>
+            <input
+              type='text'
+              value={this.state.fear}
+              name='fear'
+              id='fear'
+              onChange={(e) => this.setFear(e.target.value)}
+            />
+            <label htmlFor='history'>History</label>
+            <textarea
+              value={this.state.history}
+              name='history'
+              id='history'
+              cols='30'
+              rows='5'
+              onChange={(e) => this.setHistory(e.target.value)}
+            />
+          </fieldset>
+          <button type='button' onClick={this.handleClick}>Review Character</button>
+        </form>
+      </section>
     )
   }
 }

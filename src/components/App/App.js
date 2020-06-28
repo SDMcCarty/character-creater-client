@@ -147,7 +147,7 @@ class App extends Component {
             <Route path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/>
             <Route path='/review-character' render={routeProps => <ReviewCharacter {...routeProps} newCharacter={this.state.newChara} saveNewCharacter={this.saveNewCharacter}/>} />
             <Route exact path='/'>
-              <Link to='/create'><button type='button'>Create Character</button></Link>
+              <Link to='/create'><button type='button' className='create-character-button'>Create Character</button></Link>
             </Route>
           </Switch>
         </main>
