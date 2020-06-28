@@ -10,3 +10,8 @@
 input {
   padding: 5px;
 }
+
+.login-link {
+  display: block;
+  text-decoration: none;
+}

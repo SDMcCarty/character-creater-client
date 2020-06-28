@@ -9,7 +9,7 @@ class Header extends Component {
     return <>
         <h1 className='header'>
           <Link to='/' className='header-link'>
-            Character Creater
+            Kartara
           </Link>
         </h1>
         <p className='Header__tagline'>Helping Creators Create</p>
