@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import Header from '../Header/Header';
+import PrivateRoute from '../Utils/PrivateRoute';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage';
 import RegisterPage from '../../routes/RegisterPage';
-import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
+// import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 import CharacterList from '../CharacterList/CharacterList';
 import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
@@ -22,23 +24,25 @@ class App extends Component {
 
   componentDidMount() {
     //probs need if logged in logic
-    this.setState({ hasError: false })
-    fetch(`${config.API_ENDPOINT}/characters`, {
-      headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`
-      }
-    })
-      .then(res => {
-        if(!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
+    if (TokenService.hasAuthToken) {
+      this.setState({ hasError: false })
+      fetch(`${config.API_ENDPOINT}/characters`, {
+        headers: {
+          'authorization': `bearer ${TokenService.getAuthToken()}`
+        }
       })
-      .then(data => {
-        this.setState({ charaList: data })
-      }).catch(err => {
-        this.setState({ hasError: err })
-        console.log(err)
-      })
+        .then(res => {
+          if(!res.ok)
+            return res.json().then(e => Promise.reject(e))
+          return res.json()
+        })
+        .then(data => {
+          this.setState({ charaList: data })
+        }).catch(err => {
+          this.setState({ hasError: err })
+          console.log(err)
+        })
+    }
   }
 
   saveNewCharacter = () => {
@@ -126,6 +130,26 @@ class App extends Component {
     })
   } 
 
+  onLogin = () => {
+    this.setState({ hasError: false })
+    fetch(`${config.API_ENDPOINT}/characters`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res => {
+        if(!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(data => {
+        this.setState({ charaList: data })
+      }).catch(err => {
+        this.setState({ hasError: err })
+        console.log(err)
+      })
+  }
+
   render() {
     const { error } = this.state.hasError
     return (
@@ -136,15 +160,14 @@ class App extends Component {
         <main className='App__main'>
           {error && <p className='red'>There was an error!</p>}
           <Switch>
-            <Route path='/login' component={LoginPage} />
-            <Route path='/register' component={RegisterPage} />
-            <Route path='/randomize'>
+            <PublicOnlyRoute path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} />
+            <PublicOnlyRoute path='/register' component={RegisterPage} />
+            {/* <Route path='/randomize'>
               <RandomizeCharacter />
-            </Route>
-            <Route path='/character-list' render={routeProps => <CharacterList {...routeProps} characters={this.state.charaList}/>}>
-            </Route>
+            </Route> */}
+            <PrivateRoute path='/character-list' render={routeProps => <CharacterList {...routeProps} characters={this.state.charaList}/>} />
             <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>}/>
-            <Route path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/>
+            <PrivateRoute path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/>
             <Route path='/review-character' render={routeProps => <ReviewCharacter {...routeProps} newCharacter={this.state.newChara} saveNewCharacter={this.saveNewCharacter}/>} />
             <Route exact path='/'>
               <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
