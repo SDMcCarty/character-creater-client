@@ -22,9 +22,10 @@ class RegistrationFrom extends Component {
       user_name.value = ''
       password.value = ''
       email.value = ''
-      this.props.onRegistartionSuccess()
+      this.props.onRegisterSuccess()
     })
     .catch(res => {
+      console.log(res.error)
       this.setState({ error: res.error })
     })
   }

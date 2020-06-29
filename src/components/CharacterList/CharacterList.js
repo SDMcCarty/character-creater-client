@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CharacterContext from '../../context/CharacterContext'
 import './CharacterList.css'
 
 class CharacterList extends Component {
+  static contextType = CharacterContext
+
+componentDidMount() {
+    console.log('Character List Mount')
+    this.context.fetchCharacters()
+  }
 
   render() {
-    const characters = this.props.characters
+    const characters = this.context.charaList
     return (
       <section aria-label='Your character list'>
         <h2 className='page-heading'>Your characters</h2>

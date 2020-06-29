@@ -11,6 +11,7 @@ import CharacterList from '../CharacterList/CharacterList';
 import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
 import ReviewCharacter from '../ReviewCharacter/Review-Character'
+import CharacterContext from '../../context/CharacterContext'
 import './App.css'
 import config from '../../config';
 
@@ -22,8 +23,8 @@ class App extends Component {
     hasError: false
   }
 
-  componentDidMount() {
-    if (TokenService.hasAuthToken()) {
+  fetchCharacters = () => {
+    console.log('Fetch Characters Called')
       this.setState({ hasError: false })
       fetch(`${config.API_ENDPOINT}/characters`, {
         headers: {
@@ -36,12 +37,15 @@ class App extends Component {
           return res.json()
         })
         .then(data => {
+          console.log('got em!')
           this.setState({ charaList: data })
         }).catch(err => {
+          console.log(
+            'errrror'
+          )
           this.setState({ hasError: err })
           console.log(err)
         })
-    }
   }
 
   saveNewCharacter = () => {
@@ -91,7 +95,7 @@ class App extends Component {
       })
   }
 
-  makeNewCharacter = (newCharacterInfo) => {
+  setNewCharacter = (newCharacterInfo) => {
     this.setState({
       newChara: {
         ...newCharacterInfo
@@ -127,54 +131,42 @@ class App extends Component {
         hasError: err
       })
     })
-  } 
-
-  // onLogin = () => {
-  //   this.setState({ hasError: false })
-  //   fetch(`${config.API_ENDPOINT}/characters`, {
-  //     headers: {
-  //       'authorization': `bearer ${TokenService.getAuthToken()}`
-  //     }
-  //   })
-  //     .then(res => {
-  //       if(!res.ok)
-  //         return res.json().then(e => Promise.reject(e))
-  //       return res.json()
-  //     })
-  //     .then(data => {
-  //       this.setState({ charaList: data })
-  //     }).catch(err => {
-  //       this.setState({ hasError: err })
-  //       console.log(err)
-  //     })
-  // }
+  }  
 
   render() {
     const { error } = this.state.hasError
     return (
-      <div className='App'>
-        <header className='App__header'>
-          <Header />
-        </header>
-        <main className='App__main'>
-          {error && <p className='red'>There was an error!</p>}
-          <Switch>
-            {/* <PublicOnlyRoute path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
-            <PublicOnlyRoute path='/login' component={LoginPage} />
-            <PublicOnlyRoute path='/register' component={RegisterPage} />
-            {/* <Route path='/randomize'>
-              <RandomizeCharacter />
-            </Route> */}
-            <PrivateRoute path='/character-list' render={routeProps => <CharacterList {...routeProps} characters={this.state.charaList}/>} />
-            <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>} />
-            <PrivateRoute path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/>
-            <Route path='/review-character' render={routeProps => <ReviewCharacter {...routeProps} newCharacter={this.state.newChara} saveNewCharacter={this.saveNewCharacter}/>} />
-            <Route exact path='/'>
-              <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
-            </Route>
-          </Switch>
-        </main>
-      </div>
+      <CharacterContext.Provider value={{
+        charaList: this.state.charaList,
+        newChara: this.state.newChara,
+        fetchCharacters: this.fetchCharacters,
+        setNewCharacter: this.setNewCharacter,
+        saveNewCharacter: this.saveNewCharacter,
+      }}>
+        <div className='App'>
+          <header className='App__header'>
+            <Header />
+          </header>
+          <main className='App__main'>
+            {error && <p className='red'>There was an error!</p>}
+            <Switch>
+              {/* <Route path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
+              <PublicOnlyRoute path='/login' component={LoginPage} />
+              <PublicOnlyRoute path='/register' component={RegisterPage} />
+              {/* <Route path='/randomize'>
+                <RandomizeCharacter />
+              </Route> */}
+              <PrivateRoute path='/character-list' component={CharacterList} />
+              <PrivateRoute  exact path='/create' component={CreateCharacter} />
+              {/* <PrivateRoute path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/> */}
+              <PrivateRoute path='/review-character' component={ReviewCharacter} />
+              <Route exact path='/'>
+                <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
+              </Route>
+            </Switch>
+          </main>
+        </div>
+      </CharacterContext.Provider>
     );
   }
 }

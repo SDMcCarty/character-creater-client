@@ -10,9 +10,8 @@ class LoginPage extends Component {
   }
 
   handleLoginSuccess = () => {
-    // this.props.onLogin()
     const { history } = this.props
-    history.push('/')
+    history.push('/character-list')
   }
 
   render() {

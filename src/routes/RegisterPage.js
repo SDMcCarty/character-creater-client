@@ -17,7 +17,7 @@ class RegisterPage extends Component {
     return (
       <section className='RegistrationPage'>
         <h2 className='page-heading'>Register</h2>
-        <RegistrationForm onRegisterationSuccess={this.handleRegistrationSuccess} />
+        <RegistrationForm onRegisterSuccess={this.handleRegistrationSuccess} />
       </section>
     )
   }

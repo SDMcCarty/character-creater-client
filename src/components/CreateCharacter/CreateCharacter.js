@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import CharacterContext from '../../context/CharacterContext'
 import './CreateCharacter.css'
 
 class CreateCharacter extends Component {
+  static contextType = CharacterContext
+
   state = {
     first_name: '',
     last_name: '',
@@ -63,11 +66,12 @@ class CreateCharacter extends Component {
 
   handleClick = (e) => {
     e.preventDefault()
-    this.props.makeNewCharacter(this.state)
+    this.context.setNewCharacter(this.state)
     this.props.history.push('/review-character')
   }
   
   render() {
+    console.log(this.context)
     return(
       <section aria-label='create character form'>
         <h2 className='page-heading'>Create Your Character!</h2>
