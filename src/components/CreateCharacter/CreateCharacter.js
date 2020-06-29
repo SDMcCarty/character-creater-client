@@ -141,7 +141,7 @@ class CreateCharacter extends Component {
               value={this.state.history}
               name='history'
               id='history'
-              cols='30'
+              // width='30'
               rows='5'
               onChange={(e) => this.setHistory(e.target.value)}
             />

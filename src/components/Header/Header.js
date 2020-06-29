@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import quill from '../../img/quill.png'
 
 
 class Header extends Component {
@@ -9,6 +10,7 @@ class Header extends Component {
     return <>
         <h1 className='header'>
           <Link to='/' className='header-link'>
+            <img src={quill} alt='quill icon' className='icon'/>
             Kartara
           </Link>
         </h1>
