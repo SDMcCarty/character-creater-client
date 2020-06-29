@@ -11,13 +11,17 @@ class Header extends Component {
     TokenService.clearAuthToken()
   }
 
-  renderLogoutLink() {
+  renderLoggedInLinks() {
     return (
       <div className='Header__logged-in'>
         <Link
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
+        </Link>
+        <Link
+          to='/character-list'>
+          Character List
         </Link>
       </div>
     )
@@ -50,7 +54,7 @@ class Header extends Component {
         </h1>
         <p className='Header__tagline'>Helping Creators Create</p>
         <span className='log-in-out-route'> {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
+          ? this.renderLoggedInLinks()
           : this.renderLoginLink()}
         </span>
       </nav>

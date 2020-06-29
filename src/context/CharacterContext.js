@@ -45,6 +45,7 @@ export class CharacterProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setCharaList: this.setCharaList,
+      setNewCharacter: this.setNewCharacter,
     }
     return (
       <CharacterContext.Provider value={value}>
