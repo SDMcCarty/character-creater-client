@@ -4,7 +4,7 @@ import CharacterContext from '../context/CharacterContext'
 
 const UserCharactersApiService = {
   getCharacters() {
-    fetch(`${config.API_ENDPOINT}/characters`, {
+    return fetch(`${config.API_ENDPOINT}/characters`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }
@@ -28,9 +28,9 @@ const UserCharactersApiService = {
       // })
   },
 
-  getCharacter(characterId) {
-    return fetch()
-  }
+  // getCharacter(characterId) {
+  //   return fetch()
+  // }
 }
 
 export default UserCharactersApiService
