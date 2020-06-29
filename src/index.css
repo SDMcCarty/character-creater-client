@@ -17,10 +17,12 @@ body {
   font-size: 1.5em;
   font-family: 'Darker Grotesque', sans-serif;
   background: url('img/paper-1074131-25.jpg');
-  /* background-color: rgba(255, 255, 240, 0.8) */
 }
 
 button {
+  font-size: 0.6em;
+  color: #4B0082;
+  background-color: rgba(255, 255, 240, 0.5);
   padding: 5px;
   margin: 5px;
   margin-right: 5px;
@@ -29,7 +31,8 @@ button {
 }
 
 button:hover {
-  background-color: blue;
+  color: rgb(255, 255, 240);
+  background-color: #4B0082;
 }
 
 fieldset {
@@ -51,7 +54,9 @@ input {
 }
 
 .page-heading {
-  font-size: 135%
+  font-family: 'Darker Grotesque', sans-serif;
+  font-weight: 600;
+  font-size: 130%
 }
 
 .red {
@@ -62,9 +67,9 @@ fieldset {
   background-color: rgba(255, 255, 255, 0.4)
 }
 
-/* @media screen and (min-width: 450px) {
+@media screen and (min-width: 450px) {
   body {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 }
 
@@ -72,5 +77,5 @@ fieldset {
   body {
     font-size: 2em;
   }
-} */
+}
 

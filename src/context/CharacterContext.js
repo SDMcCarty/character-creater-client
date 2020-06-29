@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const CharacterContext = React.createContext({
   charaList: [],
   newChara: {},
   error: null,
-  setError: () => {},
-  clearError: () => {},
-  setCharaList: () => {},
+  // setError: () => {},
+  // clearError: () => {},
+  // setCharaList: () => {},
   saveNewCharacter: () => {},
   setNewCharacter: () => {},
   deleteCharacter: () => {},
-  onLogin: () => {},
+  // onLogin: () => {},
   fetchCharacters: () => {},
 })
 

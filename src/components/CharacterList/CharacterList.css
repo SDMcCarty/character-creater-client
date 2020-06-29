@@ -6,14 +6,17 @@ ul {
 }
 
 .characterList-link {
+  font-size: 1em;
+  line-height: 0.9em;
   text-decoration: none;
+  color: #4B0082;
 }
 
 li {
   padding: 5px;
-  margin: 5px;
+  margin-bottom: 15px;
 }
 
 li:hover {
-  color: blue;
+  color: #367D78;
 }

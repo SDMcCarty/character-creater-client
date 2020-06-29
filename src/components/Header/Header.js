@@ -9,16 +9,29 @@ class Header extends Component {
   handleLogoutClick = () => {
     console.log('handleLogoutClick called')
     TokenService.clearAuthToken()
+    this.props.history.push('/')
   }
 
   renderLogoutLink() {
     return (
       <div className='Header__logged-in'>
         <Link
+          className='log-link'
+          to='/character-list'>
+          Character List    
+        </Link>
+        <Link
+          className='log-link'
+          to='/create'>
+            Create Character
+        </Link>
+        <Link
+          className='log-link'
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
         </Link>
+        
       </div>
     )
   }
@@ -27,10 +40,12 @@ class Header extends Component {
     return (
       <div className='Header__not-logged-in'>
         <Link
+          className='log-link'
           to='/login'>
           Log in
         </Link>
         <Link 
+          className='log-link'
           to='/register'>
           Register
         </Link>
@@ -40,6 +55,7 @@ class Header extends Component {
 
 
   render() {
+    console.log(this.props)
     return (
       <nav className='nav-header'>
         <h1 className='header'>
