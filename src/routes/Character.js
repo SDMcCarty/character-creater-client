@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CharacterContext from '../context/CharacterContext'
 
 class Character extends Component {
+  static contextType = CharacterContext
 
   handleClick = (e) => {
     e.preventDefault()
     const characterId = this.props.match.params.character_id
-    this.props.deleteCharacter(characterId)
+    this.context.deleteCharacter(characterId)
     .then(() => {
       this.props.history.push('/character-list')
     })
   }
 
   render () {
-    let characters = this.props.characters
+    let characters = this.context.charaList
     if(!characters || !characters.length) {
       return (
         <p className='character-loading'>Loading Character</p>

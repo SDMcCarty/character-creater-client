@@ -142,6 +142,7 @@ class App extends Component {
         fetchCharacters: this.fetchCharacters,
         setNewCharacter: this.setNewCharacter,
         saveNewCharacter: this.saveNewCharacter,
+        deleteCharacter: this.deleteCharacter,
       }}>
         <div className='App'>
           <header className='App__header'>
@@ -158,7 +159,7 @@ class App extends Component {
               </Route> */}
               <PrivateRoute path='/character-list' component={CharacterList} />
               <PrivateRoute  exact path='/create' component={CreateCharacter} />
-              {/* <PrivateRoute path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/> */}
+              <PrivateRoute path='/characters/:character_id' component={Character} />
               <PrivateRoute path='/review-character' component={ReviewCharacter} />
               <Route exact path='/'>
                 <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
