@@ -10,11 +10,13 @@ class LoginPage extends Component {
   }
 
   handleLoginSuccess = () => {
+    // this.props.onLogin()
     const { history } = this.props
     history.push('/')
   }
 
   render() {
+    console.log(this.props)
     return (
       <section className='LoginPage'>
          <h2 className='page-heading'>Log in</h2>

@@ -23,8 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //probs need if logged in logic
-    if (TokenService.hasAuthToken) {
+    if (TokenService.hasAuthToken()) {
       this.setState({ hasError: false })
       fetch(`${config.API_ENDPOINT}/characters`, {
         headers: {
@@ -130,25 +129,25 @@ class App extends Component {
     })
   } 
 
-  onLogin = () => {
-    this.setState({ hasError: false })
-    fetch(`${config.API_ENDPOINT}/characters`, {
-      headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`
-      }
-    })
-      .then(res => {
-        if(!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
-      .then(data => {
-        this.setState({ charaList: data })
-      }).catch(err => {
-        this.setState({ hasError: err })
-        console.log(err)
-      })
-  }
+  // onLogin = () => {
+  //   this.setState({ hasError: false })
+  //   fetch(`${config.API_ENDPOINT}/characters`, {
+  //     headers: {
+  //       'authorization': `bearer ${TokenService.getAuthToken()}`
+  //     }
+  //   })
+  //     .then(res => {
+  //       if(!res.ok)
+  //         return res.json().then(e => Promise.reject(e))
+  //       return res.json()
+  //     })
+  //     .then(data => {
+  //       this.setState({ charaList: data })
+  //     }).catch(err => {
+  //       this.setState({ hasError: err })
+  //       console.log(err)
+  //     })
+  // }
 
   render() {
     const { error } = this.state.hasError
@@ -160,13 +159,14 @@ class App extends Component {
         <main className='App__main'>
           {error && <p className='red'>There was an error!</p>}
           <Switch>
-            <PublicOnlyRoute path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} />
+            {/* <PublicOnlyRoute path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
+            <PublicOnlyRoute path='/login' component={LoginPage} />
             <PublicOnlyRoute path='/register' component={RegisterPage} />
             {/* <Route path='/randomize'>
               <RandomizeCharacter />
             </Route> */}
             <PrivateRoute path='/character-list' render={routeProps => <CharacterList {...routeProps} characters={this.state.charaList}/>} />
-            <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>}/>
+            <Route  exact path='/create' render={routeProps => <CreateCharacter {...routeProps} makeNewCharacter={this.makeNewCharacter}/>} />
             <PrivateRoute path='/characters/:character_id' render={routeProps => <Character {...routeProps} characters={this.state.charaList} deleteCharacter={this.deleteCharacter}/>}/>
             <Route path='/review-character' render={routeProps => <ReviewCharacter {...routeProps} newCharacter={this.state.newChara} saveNewCharacter={this.saveNewCharacter}/>} />
             <Route exact path='/'>
