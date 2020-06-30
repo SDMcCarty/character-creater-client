@@ -67,6 +67,10 @@ fieldset {
   background-color: rgba(255, 255, 255, 0.4)
 }
 
+.required-warning {
+  font-size: 85%;
+}
+
 @media screen and (min-width: 450px) {
   body {
     font-size: 1.8em;

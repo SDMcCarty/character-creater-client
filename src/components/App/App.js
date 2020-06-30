@@ -10,9 +10,10 @@ import RegisterPage from '../../routes/RegisterPage';
 import CharacterList from '../CharacterList/CharacterList';
 import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
-import ReviewCharacter from '../ReviewCharacter/Review-Character'
-import CharacterContext from '../../context/CharacterContext'
-import './App.css'
+import ReviewCharacter from '../ReviewCharacter/Review-Character';
+import EditCharacter from '../EditCharacter/EditCharacter';
+import CharacterContext from '../../context/CharacterContext';
+import './App.css';
 import config from '../../config';
 
 
@@ -98,6 +99,32 @@ class App extends Component {
     })
   }
 
+  editCharacter = (characterId, editChara) => {
+    console.log(characterId)
+    console.log(editChara)
+    console.log(JSON.stringify(editChara))
+    let character = this.state.charaList.find(chara => chara.id == characterId)
+    let editedChara = {...character, ...editChara}
+    console.log({ ...character, ...editChara })
+    return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(editChara)
+    })
+    .then(res => {
+      console.log('cahracter againa', editedChara)
+      if(!res.ok) 
+        return res.json().then(e => Promise.reject(e))
+      return res.json
+    })
+    .then(() => {
+
+    })
+  }
+
   deleteCharacter = (characterId) => {
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
@@ -138,6 +165,7 @@ class App extends Component {
         setNewCharacter: this.setNewCharacter,
         saveNewCharacter: this.saveNewCharacter,
         deleteCharacter: this.deleteCharacter,
+        editCharacter: this.editCharacter,
       }}>
         <div className='App'>
           <header className='App__header'>
@@ -154,7 +182,8 @@ class App extends Component {
               </Route> */}
               <PrivateRoute path='/character-list' component={CharacterList} />
               <PrivateRoute  exact path='/create' component={CreateCharacter} />
-              <PrivateRoute path='/characters/:character_id' component={Character} />
+              <PrivateRoute exact path='/characters/:character_id' component={Character} />
+              <PrivateRoute path='/characters/:character_id/edit' component={EditCharacter} />
               <PrivateRoute path='/review-character' component={ReviewCharacter} />
               <Route exact path='/'>
                 <h2 className='page-heading intro-heading'>• Welcome to Kartara •</h2>

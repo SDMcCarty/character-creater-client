@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CharacterContext from '../../context/CharacterContext'
+import GetRandom from '../Utils/GetRandom'
 import './CreateCharacter.css'
 
 class CreateCharacter extends Component {
@@ -64,7 +65,7 @@ class CreateCharacter extends Component {
     })
   }
 
-  handleClick = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
     this.context.setNewCharacter(this.state)
     this.props.history.push('/review-character')
@@ -74,10 +75,10 @@ class CreateCharacter extends Component {
     return(
       <section aria-label='create character form'>
         <h2 className='page-heading'>Create Your Character!</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend>The Basics</legend>
-            <label htmlFor='first_name'>First Name</label>
+            <legend>Basics</legend>
+            <label htmlFor='first_name'>*First Name</label>
             <input 
               required
               type='text' 
@@ -86,7 +87,8 @@ class CreateCharacter extends Component {
               id='first_name' 
               onChange={(e) => this.setFirstName(e.target.value)}
             />
-            <label htmlFor='last_name'>Last Name</label>
+            <button type='button' onClick={() => {this.setFirstName(GetRandom.getRandomInitial())}}>Randomize</button>
+            <label htmlFor='last_name'>*Last Name</label>
             <input 
               required
               type='text' 
@@ -113,8 +115,8 @@ class CreateCharacter extends Component {
             />
           </fieldset>
           <fieldset>
-            <legend>The Personality</legend>
-            <label htmlFor='major_trait'>Major Trait</label>
+            <legend>Personality</legend>
+            <label htmlFor='major_trait'>*Major Trait</label>
             <input 
               required
               type='text' 
@@ -144,12 +146,12 @@ class CreateCharacter extends Component {
               value={this.state.history}
               name='history'
               id='history'
-              // width='30'
               rows='5'
               onChange={(e) => this.setHistory(e.target.value)}
             />
           </fieldset>
-          <button type='button' onClick={this.handleClick}>Review Character</button>
+          <button type='submit'>Review Character</button>
+          <p className='required-warning'>* denotes required fields (can be edited later)</p>
         </form>
       </section>
     )

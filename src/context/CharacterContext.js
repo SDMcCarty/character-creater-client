@@ -12,6 +12,7 @@ const CharacterContext = React.createContext({
   deleteCharacter: () => {},
   // onLogin: () => {},
   fetchCharacters: () => {},
+  editCharacter: () => {},
 })
 
 export default CharacterContext
