@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   fetchCharacters = () => {
-    console.log('Fetch Characters Called')
       this.setState({ hasError: false })
       fetch(`${config.API_ENDPOINT}/characters`, {
         headers: {
@@ -37,12 +36,8 @@ class App extends Component {
           return res.json()
         })
         .then(data => {
-          console.log('got em!')
           this.setState({ charaList: data })
         }).catch(err => {
-          console.log(
-            'errrror'
-          )
           this.setState({ hasError: err })
           console.log(err)
         })
@@ -162,6 +157,8 @@ class App extends Component {
               <PrivateRoute path='/characters/:character_id' component={Character} />
               <PrivateRoute path='/review-character' component={ReviewCharacter} />
               <Route exact path='/'>
+                <h2 className='page-heading intro-heading'>• Welcome to Kartara •</h2>
+                <p className='intro'>Kartara is an app designed to help creators fully visualize their characters. Click 'Create Character' to start crafting the characters of your dreams</p>
                 <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
               </Route>
             </Switch>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CharacterContext from '../context/CharacterContext'
 
 class Character extends Component {
+
   static contextType = CharacterContext
 
   handleClick = (e) => {
@@ -28,6 +29,7 @@ class Character extends Component {
         return <p>Redirecting</p>
       return (
         <section className='character'>
+          {this.state.deletionMessage && <p className='deleting'>{this.state.deletionMessage}</p>}
           <p>Name: {character.first_name} {character.last_name}</p>
           <p>Age: {character.age}</p>
           <p>Sex: {character.sex}</p>
@@ -36,7 +38,7 @@ class Character extends Component {
           <p>Fear: {character.fear}</p>
           <p>History: {character.history}</p>
           {/* <Link to='/edit-character'><button type='buttom'>Edit Character</button></Link> */}
-          <Link to='/character-list'><button type='button' onClick={this.handleClick}>Delete Character</button></Link>
+          <Link to='/character-list'><button type='button' onClick={(e) => {if (window.confirm('Are you sure you wish to delete this character?')) this.handleClick(e)}}>Delete Character</button></Link>
         </section>
       )
 

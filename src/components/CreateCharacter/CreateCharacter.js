@@ -71,7 +71,6 @@ class CreateCharacter extends Component {
   }
   
   render() {
-    console.log(this.context)
     return(
       <section aria-label='create character form'>
         <h2 className='page-heading'>Create Your Character!</h2>

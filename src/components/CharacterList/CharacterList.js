@@ -7,7 +7,6 @@ class CharacterList extends Component {
   static contextType = CharacterContext
 
 componentDidMount() {
-    console.log('Character List Mount')
     this.context.fetchCharacters()
   }
 

@@ -20,3 +20,8 @@ li {
 li:hover {
   color: #367D78;
 }
+
+.character-li {
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+}

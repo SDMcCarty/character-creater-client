@@ -8,7 +8,6 @@ class ReviewCharacter extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('handleSubmit was called')
     this.context.saveNewCharacter()
     .then(() => {
       this.props.history.push('/character-list')
@@ -16,9 +15,6 @@ class ReviewCharacter extends Component {
   }
 
   render() {
-    // console.log('props', this.props)
-    // console.log('new character', this.props.newCharacter)
-    // console.log('save chara', this.props.saveNewCharacter)
     const newCharacter = this.context.newChara
     return (
       <section className='review-character-section'>

@@ -6,3 +6,16 @@
 .create-charater-link{
   text-decoration: none;
 }
+
+.intro {
+  padding-top: -3px;
+  line-height: 1em;
+  text-align: center;
+  font-size: 90%;
+  margin-bottom: 25px;
+}
+
+.intro-heading {
+  text-align: center;
+  margin-bottom: 15px;
+}

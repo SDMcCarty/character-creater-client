@@ -10,7 +10,7 @@ class EditCharacter extends Component {
         <form>
         <section class="character">
           <p>Name: <input type="text" placeholder="[Name or initials]"></input></p>
-          <p>Major Event:</p>
+          <p>Major Trait:</p>
           <p>The event:<textarea>[event]</textarea></p>
         </section>
       

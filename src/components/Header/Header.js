@@ -55,7 +55,6 @@ class Header extends Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <nav className='nav-header'>
         <h1 className='header'>
