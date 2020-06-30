@@ -97,6 +97,7 @@ class CreateCharacter extends Component {
               id='last_name' 
               onChange={(e) => this.setLastName(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setLastName(GetRandom.getRandomInitial())}}>Randomize</button>
             <label htmlFor='age'>Age</label>
             <input
               type='text'
@@ -105,6 +106,7 @@ class CreateCharacter extends Component {
               id='age'
               onChange={(e) => this.setAge(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setAge(GetRandom.getRandomAge())}}>Randomize</button>
             <label htmlFor='sex'>Sex</label>
             <input
               type='text'
@@ -113,6 +115,7 @@ class CreateCharacter extends Component {
               id='sex'
               onChange={(e) => this.setSex(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setSex(GetRandom.getRandomSex())}}>Randomize</button>
           </fieldset>
           <fieldset>
             <legend>Personality</legend>
@@ -125,6 +128,7 @@ class CreateCharacter extends Component {
               id='major_trait' 
               onChange={(e) => this.setMajorTrait(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setMajorTrait(GetRandom.getRandomMajorTrait())}}>Randomize</button>
             <label htmlFor='motivation'>Motivation</label>
             <input
               type='text'
@@ -133,6 +137,7 @@ class CreateCharacter extends Component {
               id='motivation'
               onChange={(e) => this.setMotivation(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setMotivation(GetRandom.getRandomMotivation())}}>Randomize</button>
             <label htmlFor='fear'>Fear</label>
             <input
               type='text'
@@ -141,6 +146,7 @@ class CreateCharacter extends Component {
               id='fear'
               onChange={(e) => this.setFear(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setFear(GetRandom.getRandomFear())}}>Randomize</button>
             <label htmlFor='history'>History</label>
             <textarea
               value={this.state.history}
@@ -149,6 +155,7 @@ class CreateCharacter extends Component {
               rows='5'
               onChange={(e) => this.setHistory(e.target.value)}
             />
+            <button type='button' onClick={() => {this.setHistory(GetRandom.getRandomHistory())}}>Randomize</button>
           </fieldset>
           <button type='submit'>Review Character</button>
           <p className='required-warning'>* denotes required fields (can be edited later)</p>

@@ -103,6 +103,7 @@ class App extends Component {
     console.log(characterId)
     console.log(editChara)
     console.log(JSON.stringify(editChara))
+    // eslint-disable-next-line eqeqeq
     let character = this.state.charaList.find(chara => chara.id == characterId)
     let editedChara = {...character, ...editChara}
     console.log({ ...character, ...editChara })
@@ -120,8 +121,11 @@ class App extends Component {
         return res.json().then(e => Promise.reject(e))
       return res.json
     })
-    .then(() => {
-
+    .catch(err => {
+      console.log(err)
+      this.setState({
+        hasError: err
+      })
     })
   }
 
