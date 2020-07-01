@@ -19,3 +19,17 @@
 p {
   margin-bottom: 8px;
 }
+
+.review-button {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+}
+
+@media screen and (min-width: 374px) {
+  .review-button {
+    width: auto;
+    margin-right: 7px;
+    margin-left: 1px;
+  }
+}

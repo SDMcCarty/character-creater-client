@@ -30,9 +30,8 @@ class ReviewCharacter extends Component {
           <p><span className='p-label'>History:</span> {newCharacter.history}</p>
         </div>
 
-        <button type='submit' onClick={this.handleSubmit}>Save Character</button>
-        <Link to='/create'><button type='button'>Delete and start again</button></Link>
-        {/* <Link to='/randomize'><button type='button'>Randomize Character</button></Link> */}
+        <button className='review-button' type='submit' onClick={this.handleSubmit}>Save Character</button>
+        <Link to='/create'><button className='review-button' type='button'>Delete and start again</button></Link>
       </section>
     )
   }

@@ -2,6 +2,7 @@ textarea {
   width: 90%;
   border: 1px solid black;
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .required-warning {
@@ -13,7 +14,13 @@ textarea {
   width: 50%;
 }
 
-@media screen and (min-width: 330px) {
+.bottom-buttons {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+}
+
+@media screen and (min-width: 374px) {
   .create-character-button {
     width: auto;
     margin-right: 10px;
