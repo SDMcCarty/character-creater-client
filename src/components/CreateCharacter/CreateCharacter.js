@@ -65,6 +65,10 @@ class CreateCharacter extends Component {
     })
   }
 
+  randomizeAll = (character) => {
+    this.setState({ ...character })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     this.context.setNewCharacter(this.state)
@@ -158,6 +162,7 @@ class CreateCharacter extends Component {
             <button type='button' onClick={() => {this.setHistory(GetRandom.getRandomHistory())}}>Randomize</button>
           </fieldset>
           <button type='submit'>Review Character</button>
+          <button type='button' onClick={() => {this.randomizeAll(GetRandom.randomizeAll())}}>Randomize Character</button>
           <p className='required-warning'>* denotes required fields (can be edited later)</p>
         </form>
       </section>

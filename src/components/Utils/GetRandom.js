@@ -34,6 +34,20 @@ function getRandomHistory() {
   return histories[Math.floor(Math.random() * histories.length)]
 
 }
+function randomizeAll() {
+  let character = {
+    first_name: this.getRandomInitial(),
+    last_name: this.getRandomInitial(),
+    age: this.getRandomAge(),
+    sex: this.getRandomSex(),
+    major_trait: this.getRandomMajorTrait(),
+    motivation: this.getRandomMotivation(),
+    fear: this.getRandomFear(),
+    history: this.getRandomHistory(),
+  }
+  console.log(character)
+  return character
+}
 
 export default {
   getRandomInitial,
@@ -43,4 +57,5 @@ export default {
   getRandomMotivation,
   getRandomFear,
   getRandomHistory,
+  randomizeAll,
 }

@@ -23,7 +23,7 @@ class Header extends Component {
         <Link
           className='log-link'
           to='/create'>
-            Create Character
+          Create Character
         </Link>
         <Link
           className='log-link'

@@ -181,9 +181,7 @@ class App extends Component {
               {/* <Route path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
               <PublicOnlyRoute path='/login' component={LoginPage} />
               <PublicOnlyRoute path='/register' component={RegisterPage} />
-              {/* <Route path='/randomize'>
-                <RandomizeCharacter />
-              </Route> */}
+              {/* <PrivateRoute path='/random-character' component={RandomizeCharacter} /> */}
               <PrivateRoute path='/character-list' component={CharacterList} />
               <PrivateRoute  exact path='/create' component={CreateCharacter} />
               <PrivateRoute exact path='/characters/:character_id' component={Character} />
