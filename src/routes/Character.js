@@ -7,6 +7,7 @@ class Character extends Component {
   static contextType = CharacterContext
 
   componentDidMount() {
+
     this.context.fetchCharacters()
   }
 

@@ -3,3 +3,26 @@ textarea {
   border: 1px solid black;
   border-radius: 5px;
 }
+
+.required-warning {
+ font-size: 85%;
+}
+
+.create-character-button {
+  margin-right: 20px;
+  width: 50%;
+}
+
+@media screen and (min-width: 330px) {
+  .create-character-button {
+    width: auto;
+    margin-right: 10px;
+    margin-left: -8px;
+  }
+
+  .bottom-buttons {
+    width: auto;
+    margin-right: 7px;
+    margin-left: 14px;
+  }
+}

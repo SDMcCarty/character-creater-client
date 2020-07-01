@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CharacterContext from '../../context/CharacterContext';
+import './EditCharacter.css'
 
 class EditCharacter extends Component {
   state = {}
@@ -61,15 +62,10 @@ class EditCharacter extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submitted')
-    console.log('the state', this.state)
     const characterId = this.props.match.params.character_id
-    console.log('chara id is', characterId)
     const editChara = { ...this.state }
-    console.log(editChara)
     this.context.editCharacter(characterId, editChara)
       .then(() => {
-        console.log(characterId, 'charaId again!')
         this.props.history.push(`/character-list`)
       })
   }
@@ -84,9 +80,6 @@ class EditCharacter extends Component {
   }
   
   render() {
-    console.log(this.context)
-    console.log(this.context.editCharacter)
-    console.log(this.context.deleteCharacter)
     let characters = this.context.charaList
     if(!characters || !characters.length) {
       return (
@@ -96,13 +89,9 @@ class EditCharacter extends Component {
       let id = this.props.match.params.character_id
       // eslint-disable-next-line eqeqeq
       let character = characters.find(chara => chara.id == id)
-      console.log('character is', character)
         if(!character) {
           return <p>Redirecting</p>
         } else {
-            console.log('final return called')
-            console.log(character)
-            console.log(this.state)
             return (
                 <form>
                   <section className='characterEditer'>
@@ -154,13 +143,14 @@ class EditCharacter extends Component {
                     <label htmlFor='history'>History:<textarea 
                       placeholder={character.history} 
                       id='history'
+                      rows='5'
                       onChange={(e) => this.setHistory(e.target.value)}/>
                     </label>
                   </section>
                 
-                  <Link to={`/characters/${character.id}`}><button type='submit' onClick={this.handleSubmit}>Save Character</button></Link>
-                  <Link to={`/characters/${character.id}`}><button type='button'>Cancel Edit</button></Link>
-                  <Link to='/character-list'><button type='button' onClick={(e) => {if (window.confirm('Are you sure you wish to delete this character?')) this.handleDelete(e)}}>Delete character</button></Link>
+                  <Link to={`/characters/${character.id}`}><button className='button-on-edit' type='submit' onClick={this.handleSubmit}>Save Character</button></Link>
+                  <Link to={`/characters/${character.id}`}><button className='button-on-edit' type='button'>Cancel Edit</button></Link>
+                  <Link to='/character-list'><button className='button-on-edit' type='button' onClick={(e) => {if (window.confirm('Are you sure you wish to delete this character?')) this.handleDelete(e)}}>Delete character</button></Link>
                 </form>
           )
         }

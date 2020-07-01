@@ -24,8 +24,9 @@ button {
   color: #4B0082;
   background-color: rgba(255, 255, 240, 0.5);
   padding: 5px;
-  margin: 5px;
-  margin-right: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
   border: 1px solid black;
   border-radius: 8px;
 }
@@ -36,7 +37,10 @@ button:hover {
 }
 
 fieldset {
+  border: 0.5px solid gray;
   margin: 5px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 label {
@@ -69,6 +73,14 @@ fieldset {
 
 .required-warning {
   font-size: 85%;
+}
+
+@media screen and (min-width: 330px) {
+  button {
+    width: auto;
+    margin-right: 8px;
+    margin-left: 18px;
+  }
 }
 
 @media screen and (min-width: 450px) {
