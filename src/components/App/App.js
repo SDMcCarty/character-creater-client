@@ -101,8 +101,6 @@ class App extends Component {
 
   editCharacter = (characterId, editChara) => {
     // eslint-disable-next-line eqeqeq
-    let character = this.state.charaList.find(chara => chara.id == characterId)
-    let editedChara = {...character, ...editChara}
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
       headers: {
@@ -172,7 +170,6 @@ class App extends Component {
           </header>
           <main className='App__main'>
             {error && <p className='red'>There was an error!</p>}
-            <p>Hi</p>
             <Switch>
               {/* <Route path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
               <PublicOnlyRoute path='/login' component={LoginPage} />
