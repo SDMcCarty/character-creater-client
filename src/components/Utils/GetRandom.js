@@ -45,7 +45,6 @@ function randomizeAll() {
     fear: this.getRandomFear(),
     history: this.getRandomHistory(),
   }
-  console.log(character)
   return character
 }
 

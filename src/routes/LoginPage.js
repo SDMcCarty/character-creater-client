@@ -15,7 +15,6 @@ class LoginPage extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <section className='LoginPage'>
          <h2 className='page-heading'>Log in</h2>

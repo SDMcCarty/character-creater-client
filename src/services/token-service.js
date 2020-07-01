@@ -10,7 +10,6 @@ const TokenService = {
   },
 
   clearAuthToken() {
-    console.log('claerAuthToken called')
     window.localStorage.removeItem(config.TOKEN_KEY)
   },
 

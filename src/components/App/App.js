@@ -100,13 +100,9 @@ class App extends Component {
   }
 
   editCharacter = (characterId, editChara) => {
-    console.log(characterId)
-    console.log(editChara)
-    console.log(JSON.stringify(editChara))
     // eslint-disable-next-line eqeqeq
     let character = this.state.charaList.find(chara => chara.id == characterId)
     let editedChara = {...character, ...editChara}
-    console.log({ ...character, ...editChara })
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
       headers: {
@@ -116,7 +112,6 @@ class App extends Component {
       body: JSON.stringify(editChara)
     })
     .then(res => {
-      console.log('cahracter againa', editedChara)
       if(!res.ok) 
         return res.json().then(e => Promise.reject(e))
       return res.json

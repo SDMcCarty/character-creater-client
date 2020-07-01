@@ -14,7 +14,6 @@ const UserCharactersApiService = {
         return res.json()
       })
       .then(data => {
-        console.log(data)
         this.setState({ charaList: data })
       }).catch(err => {
         console.log(err)
