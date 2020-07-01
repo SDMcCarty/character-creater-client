@@ -172,6 +172,7 @@ class App extends Component {
           </header>
           <main className='App__main'>
             {error && <p className='red'>There was an error!</p>}
+            <p>Hi</p>
             <Switch>
               {/* <Route path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
               <PublicOnlyRoute path='/login' component={LoginPage} />
