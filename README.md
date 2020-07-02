@@ -13,6 +13,9 @@ https://kartara.sdmccarty.vercel.app
 
 ## SCREENSHOTS
 
+Mobile View
+[Screenshot](docs/MobileView.png)
+
 Login Page
 [Screenshot](docs/Login.png)
 
