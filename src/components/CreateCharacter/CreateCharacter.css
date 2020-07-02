@@ -20,6 +20,11 @@ textarea {
   width: 90%;
 }
 
+.create-intro {
+  font-size: 85%;
+  line-height: 90%;
+}
+
 @media screen and (min-width: 374px) {
   .create-character-button {
     width: auto;

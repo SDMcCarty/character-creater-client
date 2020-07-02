@@ -15,7 +15,7 @@ function getRandomSex() {
 }
 
 function getRandomMajorTrait() {
-  let majorTraits = ['brave', 'smart', 'cowardly', 'dumb', 'funny', 'adventerous', 'shy', 'adept', 'inept', 'clumsy', 'sly', 'boisterous', 'lucky', 'dexterous', 'agile', 'quick-witted', 'verbose', 'reticent', 'indecisive', 'forgetful', 'serious', 'childish', 'innocent', 'kind', 'happy', 'critical', 'artistic', 'conflicted', 'mature', 'strong-willed', 'short-tempered', 'rebellious', 'nerdy', 'straight-laced', 'nervous', 'cruel', 'selfish', 'malicious', 'sadistic', 'tortured', 'weak', 'haunted', 'drunkard', 'loud', 'heartless', 'artless', 'calious', 'quiet', 'bigoted']
+  let majorTraits = ['brave', 'smart', 'cowardly', 'dumb', 'funny', 'adventerous', 'shy', 'adept', 'inept', 'clumsy', 'sly', 'boisterous', 'lucky', 'dexterous', 'agile', 'quick-witted', 'verbose', 'reticent', 'indecisive', 'forgetful', 'serious', 'childish', 'innocent', 'kind', 'happy', 'critical', 'artistic', 'conflicted', 'mature', 'strong-willed', 'short-tempered', 'rebellious', 'nerdy', 'straight-laced', 'nervous', 'cruel', 'selfish', 'malicious', 'sadistic', 'tortured', 'weak', 'haunted', 'drunkard', 'loud', 'heartless', 'artless', 'callous', 'quiet', 'bigoted']
   return majorTraits[Math.floor(Math.random() * majorTraits.length)]
 }
 

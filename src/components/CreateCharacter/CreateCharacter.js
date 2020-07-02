@@ -79,6 +79,7 @@ class CreateCharacter extends Component {
     return(
       <section aria-label='create character form'>
         <h2 className='page-heading'>Create Your Character!</h2>
+        <p className='create-intro'>Please enter your character's information below or click 'Randomize' for a prompt to help get those creative juices flowing</p>
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Basics</legend>
@@ -91,7 +92,7 @@ class CreateCharacter extends Component {
               id='first_name' 
               onChange={(e) => this.setFirstName(e.target.value)}
             />
-            <button className='create-character-button' type='button' onClick={() => {this.setFirstName(GetRandom.getRandomInitial())}}>Randomize</button>
+            <button className='create-character-button' type='button' onClick={() => {this.setFirstName(GetRandom.getRandomInitial())}}>Randomize Initial</button>
             <label htmlFor='last_name'>*Last Name</label>
             <input 
               required
@@ -101,7 +102,7 @@ class CreateCharacter extends Component {
               id='last_name' 
               onChange={(e) => this.setLastName(e.target.value)}
             />
-            <button className='create-character-button' type='button' onClick={() => {this.setLastName(GetRandom.getRandomInitial())}}>Randomize</button>
+            <button className='create-character-button' type='button' onClick={() => {this.setLastName(GetRandom.getRandomInitial())}}>Randomize Initial</button>
             <label htmlFor='age'>Age</label>
             <input
               type='text'
