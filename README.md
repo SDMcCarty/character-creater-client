@@ -14,22 +14,22 @@ https://kartara.sdmccarty.vercel.app
 ## SCREENSHOTS
 
 Login Page
-(docs/Login.png)
+[Screenshot](docs/Login.png)
 
 Homepage
-(docs/Homepage.png)
+[Screenshot](docs/Homepage.png)
 
 Create Character Page
-(docs/CreateCharacter.png)
+[Screenshot](docs/CreateCharacter.png)
 
 Save Character Page
-(docs/SaveCharacter.png)
+[Screenshot](docs/SaveCharacter.png)
 
 Character List Page
-(docs/CharacterList.png)
+[Screenshot](docs/CharacterList.png)
 
 Edit Character Page
-(docs/EditCharacter.png)
+[Screenshot](docs/EditCharacter.png)
 
 ## COMPONENTS
 
