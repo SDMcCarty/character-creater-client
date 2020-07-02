@@ -6,7 +6,8 @@
       "dest": "/static/$1"
     },
     {
-      "handle": "filesystem"
+      "src": "/([a-z]*\\.)(json|ico)$",    
+      "dest": "/$1$2"
     },
     {
       "src": ".*",
