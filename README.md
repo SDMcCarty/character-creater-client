@@ -45,4 +45,12 @@ Edit Character Page
 
 * Character List: src/components/CharacterList displays a users characters and allows them to view more details about them
 
-* 
+* Character Page: src/routes/Character displays the full information available for a character with the option to edit or delete them
+
+* Edit Character: src/components/EditCharacter gives creators the opportunity to edit the information about their characters before saving, canceling, or deleting
+
+* Utils on src/components/Utils provides information for the Private and Public Routes (as well as the Get Random methods mentioned above)
+
+* Context: src/context provides basic context for the app
+
+* Services: src/services has the authorization services needed for page
