@@ -25,3 +25,8 @@ li:hover {
   border-bottom: 1px solid black;
   border-radius: 5px;
 }
+
+.list-intro {
+  font-size: 85%;
+  line-height: 90%;
+}

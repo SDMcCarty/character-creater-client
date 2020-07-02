@@ -15,6 +15,7 @@ componentDidMount() {
     return (
       <section aria-label='Your character list'>
         <h2 className='page-heading'>Your characters</h2>
+        <p className='list-intro'>Select a character below to see more information or start creating a new character</p>
         <ul>
           {characters.map(character => 
             <Link key={character.id} to={`/characters/${character.id}`} className='characterList-link'>
@@ -25,6 +26,7 @@ componentDidMount() {
             </Link>
           )}
         </ul>
+        <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
       </section>
     )
   }

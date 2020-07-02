@@ -16,6 +16,11 @@ textarea {
   display: block;
 }
 
+.edit-intro {
+  font-size: 85%;
+  line-height: 90%;
+}
+
 @media screen and (min-width: 374px) {
   .button-on-edit {
     width: auto;

@@ -93,6 +93,9 @@ class EditCharacter extends Component {
           return <p>Redirecting</p>
         } else {
             return (
+              <section aria-label='Edit character'>
+                <h2 className='page-heading'>Edit {character.first_name} {character.last_name}</h2>
+                <p className='edit-intro'>Edit your character, then click save to update your character. Click cancel to revert charcter back, or delete to say 'good-bye' to them</p>
                 <form>
                   <section className='characterEditer'>
                     <label htmlFor='first_name'>First Name: <input 
@@ -152,6 +155,7 @@ class EditCharacter extends Component {
                   <Link to={`/characters/${character.id}`}><button className='button-on-edit' type='button'>Cancel Edit</button></Link>
                   <Link to='/character-list'><button className='button-on-edit' type='button' onClick={(e) => {if (window.confirm('Are you sure you wish to delete this character?')) this.handleDelete(e)}}>Delete character</button></Link>
                 </form>
+              </section>
           )
         }
 
