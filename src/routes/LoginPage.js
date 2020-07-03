@@ -10,6 +10,7 @@ class LoginPage extends Component {
   }
 
   handleLoginSuccess = () => {
+    //when log in succeeds, redirects to user's character list
     const { history } = this.props
     history.push('/character-list')
   }

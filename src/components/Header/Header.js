@@ -11,6 +11,7 @@ class Header extends Component {
     this.props.history.push('/')
   }
 
+  //if user is logged in
   renderLogoutLink() {
     return (
       <div className='Header__logged-in'>
@@ -35,6 +36,7 @@ class Header extends Component {
     )
   }
 
+  //if user is not logged in
   renderLoginLink() {
     return (
       <div className='Header__not-logged-in'>

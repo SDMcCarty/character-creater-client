@@ -9,9 +9,11 @@ class EditCharacter extends Component {
   static contextType = CharacterContext
 
   componentDidMount() {
+    //gets the user's characters
     this.context.fetchCharacters()
   }
 
+  //set**** methods sets **** in the state
   setFirstName = (newFirstName) => {
     this.setState({
       first_name: newFirstName
@@ -62,6 +64,7 @@ class EditCharacter extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    //sends a path request to update the character
     const characterId = this.props.match.params.character_id
     const editChara = { ...this.state }
     this.context.editCharacter(characterId, editChara)
@@ -72,6 +75,7 @@ class EditCharacter extends Component {
 
   handleDelete = (e) => {
     e.preventDefault()
+    //sets the 'status' to 'deleted', effectively 'deleting' the character
     const characterId = this.props.match.params.character_id
     this.context.deleteCharacter(characterId)
       .then(() => {

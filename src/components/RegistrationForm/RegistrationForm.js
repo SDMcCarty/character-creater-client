@@ -13,6 +13,7 @@ class RegistrationFrom extends Component {
     const { user_name, password, email } = e.target
 
     this.setState({ error: null })
+    //registers a new user
     AuthApiService.postUser({
       user_name: user_name.value,
       password: password.value,

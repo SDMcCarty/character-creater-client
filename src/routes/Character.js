@@ -24,14 +24,17 @@ class Character extends Component {
     let characters = this.context.charaList
     if(!characters || !characters.length) {
       return (
+        //if no characters fetched
         <p className='character-loading'>Loading Character</p>
       )
     } else {
       let id = this.props.match.params.character_id
       // eslint-disable-next-line eqeqeq
       let character = characters.find(chara => chara.id == id)
+      //when there is not a character loaded yet
       if(!character) 
         return <p>Redirecting</p>
+      //sets up the character display
       return (
         <section className='character'>
           <p>Name: {character.first_name} {character.last_name}</p>

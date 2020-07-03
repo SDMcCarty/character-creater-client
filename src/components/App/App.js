@@ -6,7 +6,6 @@ import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage';
 import RegisterPage from '../../routes/RegisterPage';
-// import RandomizeCharacter from '../RandomizeCharacter/RandomizeCharater';
 import CharacterList from '../CharacterList/CharacterList';
 import Character from '../../routes/Character';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
@@ -91,6 +90,7 @@ class App extends Component {
       })
   }
 
+  //sets new character to state
   setNewCharacter = (newCharacterInfo) => {
     this.setState({
       newChara: {
@@ -100,7 +100,6 @@ class App extends Component {
   }
 
   editCharacter = (characterId, editChara) => {
-    // eslint-disable-next-line eqeqeq
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
       headers: {
@@ -122,6 +121,7 @@ class App extends Component {
     })
   }
 
+  //sets the 'status' on the character to deleted to effectively 'delete' the character
   deleteCharacter = (characterId) => {
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
@@ -171,10 +171,8 @@ class App extends Component {
           <main className='App__main'>
             {error && <p className='red'>There was an error!</p>}
             <Switch>
-              {/* <Route path='/login' render={routeProps => <LoginPage {...routeProps} onLogin={this.onLogin}/>} /> */}
               <PublicOnlyRoute path='/login' component={LoginPage} />
               <PublicOnlyRoute path='/register' component={RegisterPage} />
-              {/* <PrivateRoute path='/random-character' component={RandomizeCharacter} /> */}
               <PrivateRoute path='/character-list' component={CharacterList} />
               <PrivateRoute  exact path='/create' component={CreateCharacter} />
               <PrivateRoute exact path='/characters/:character_id' component={Character} />

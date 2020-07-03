@@ -7,6 +7,7 @@ class CharacterList extends Component {
   static contextType = CharacterContext
 
 componentDidMount() {
+    //gets the user's characters
     this.context.fetchCharacters()
   }
 

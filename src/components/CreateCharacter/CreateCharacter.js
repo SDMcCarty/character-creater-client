@@ -17,6 +17,7 @@ class CreateCharacter extends Component {
     history: '',
   };
   
+  //set**** methods below sets the **** in the state
   setFirstName = (newFirstName) => {
     this.setState({
       first_name: newFirstName
@@ -162,8 +163,8 @@ class CreateCharacter extends Component {
             />
             <button className='create-character-button' type='button' onClick={() => {this.setHistory(GetRandom.getRandomHistory())}}>Randomize</button>
           </fieldset>
-          <button className='bottom-buttons' type='submit'>Review Character</button>
           <button className='bottom-buttons' type='button' onClick={() => {this.randomizeAll(GetRandom.randomizeAll())}}>Randomize Character</button>
+          <button className='bottom-buttons' type='submit'>Review Character</button>
           <p className='required-warning'>* denotes required fields (can be edited later)</p>
         </form>
       </section>

@@ -9,6 +9,7 @@ class RegisterPage extends Component {
   }
 
   handleRegistrationSuccess = user => {
+    //when registration succeeds, redirects to the login page
     const { history } = this.props
     history.push('/login')
   }
