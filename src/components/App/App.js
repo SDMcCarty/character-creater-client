@@ -21,10 +21,10 @@ class App extends Component {
     charaList: [],
     newChara: {},
     hasError: false
-  }
+  };
 
   fetchCharacters = () => {
-      this.setState({ hasError: false })
+      this.setState({ hasError: false });
       fetch(`${config.API_ENDPOINT}/characters`, {
         headers: {
           'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -32,16 +32,16 @@ class App extends Component {
       })
         .then(res => {
           if(!res.ok)
-            return res.json().then(e => Promise.reject(e))
-          return res.json()
+            return res.json().then(e => Promise.reject(e));
+          return res.json();
         })
         .then(data => {
-          this.setState({ charaList: data })
+          this.setState({ charaList: data });
         }).catch(err => {
-          this.setState({ hasError: err })
-          console.log(err)
-        })
-  }
+          this.setState({ hasError: err });
+          console.log(err);
+        });
+  };
 
   saveNewCharacter = () => {
     return fetch(`${config.API_ENDPOINT}/characters`, {
@@ -80,15 +80,15 @@ class App extends Component {
             fear: '',
             status: '',
           }
-        })
+        });
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
         this.setState({
           hasError: err
-        })
-      })
-  }
+        });
+      });
+  };
 
   //sets new character to state
   setNewCharacter = (newCharacterInfo) => {
@@ -96,9 +96,10 @@ class App extends Component {
       newChara: {
         ...newCharacterInfo
       }
-    })
-  }
+    });
+  };
 
+  //sends patch request to edit character
   editCharacter = (characterId, editChara) => {
     return fetch(`${config.API_ENDPOINT}/characters/${characterId}`, {
       method: 'PATCH',
@@ -110,16 +111,16 @@ class App extends Component {
     })
     .then(res => {
       if(!res.ok) 
-        return res.json().then(e => Promise.reject(e))
-      return res.json
+        return res.json().then(e => Promise.reject(e));
+      return res.json;
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
       this.setState({
         hasError: err
-      })
-    })
-  }
+      });
+    });
+  };
 
   //sets the 'status' on the character to deleted to effectively 'delete' the character
   deleteCharacter = (characterId) => {
@@ -135,25 +136,24 @@ class App extends Component {
     })
     .then(res => {
       if (!res.ok)
-        return res.json().then(e => Promise.reject(e))
-      return res.json
+        return res.json().then(e => Promise.reject(e));
+      return res.json;
     })
     .then(() => {
       this.setState({
-        // eslint-disable-next-line eqeqeq
         charaList: this.state.charaList.filter(chara => chara.id != characterId)
-      })
+      });
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
       this.setState({
         hasError: err
-      })
-    })
-  }  
+      });
+    });
+  };
 
   render() {
-    const { error } = this.state.hasError
+    const { error } = this.state.hasError;
     return (
       <CharacterContext.Provider value={{
         charaList: this.state.charaList,
@@ -188,7 +188,7 @@ class App extends Component {
         </div>
       </CharacterContext.Provider>
     );
-  }
-}
+  };
+};
 
 export default App;

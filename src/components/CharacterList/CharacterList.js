@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CharacterContext from '../../context/CharacterContext'
-import './CharacterList.css'
+import CharacterContext from '../../context/CharacterContext';
+import './CharacterList.css';
 
 class CharacterList extends Component {
-  static contextType = CharacterContext
+  static contextType = CharacterContext;
 
 componentDidMount() {
     //gets the user's characters
-    this.context.fetchCharacters()
-  }
+    this.context.fetchCharacters();
+  };
 
   render() {
-    const characters = this.context.charaList
+    const characters = this.context.charaList;
     return (
       <section aria-label='Your character list'>
         <h2 className='page-heading'>Your characters</h2>
@@ -29,8 +29,8 @@ componentDidMount() {
         </ul>
         <Link to='/create' className='create-charater-link'><button type='button' className='create-character-button'>Create Character</button></Link>
       </section>
-    )
-  }
-}
+    );
+  };
+};
 
-export default CharacterList
+export default CharacterList;

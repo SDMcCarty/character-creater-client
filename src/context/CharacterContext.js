@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CharacterContext = React.createContext({
   charaList: [],
@@ -9,6 +9,6 @@ const CharacterContext = React.createContext({
   deleteCharacter: () => {},
   fetchCharacters: () => {},
   editCharacter: () => {},
-})
+});
 
-export default CharacterContext
+export default CharacterContext;

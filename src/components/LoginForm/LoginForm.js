@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import { Link } from 'react-router-dom';
-import './LoginForm.css'
+import './LoginForm.css';
 
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {}
-  }
+  };
 
-  state = { error: null}
+  state = { error: null};
 
   handleSubmitJwtAuth = e => {
-    e.preventDefault()
-    this.setState({ error: null })
-    const { user_name, password } = e.target
+    e.preventDefault();
+    this.setState({ error: null });
+    const { user_name, password } = e.target;
 
     //logs in user
     AuthApiService.postLogin({
@@ -27,12 +27,11 @@ class LoginForm extends Component {
       })
       .catch(res => {
         this.setState({ error: res.error })
-      })
-
-  }
+      });
+  };
 
   render() {
-    const { error } = this.state
+    const { error } = this.state;
     return (
       <form className='LoginForm' onSubmit={this.handleSubmitJwtAuth}>
         <div role='alert'>
@@ -46,9 +45,8 @@ class LoginForm extends Component {
           <button type='submit'>Log In</button>
           <Link to='/'><button type='button'>Cancel</button></Link>
       </form>
-    )
-  }
+    );
+  };
+};
 
-}
-
-export default LoginForm
+export default LoginForm;

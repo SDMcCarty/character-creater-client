@@ -8,13 +8,13 @@ class LoginPage extends Component {
     history: {
       push: () => {},
     },
-  }
+  };
 
   handleLoginSuccess = () => {
     //when log in succeeds, redirects to user's character list
-    const { history } = this.props
-    history.push('/character-list')
-  }
+    const { history } = this.props;
+    history.push('/character-list');
+  };
 
   render() {
     return (
@@ -26,9 +26,8 @@ class LoginPage extends Component {
         <p classname='demo-creds'>User Name: User</p>
         <p classname='demo-creds'>Password: P@ssword123</p>
       </section>
-    )
-  }
+    );
+  };
+};
 
-}
-
-export default LoginPage
+export default LoginPage;

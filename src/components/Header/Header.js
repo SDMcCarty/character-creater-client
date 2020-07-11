@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import quill from '../../img/quill.png'
+import quill from '../../img/quill.png';
 import TokenService from '../../services/token-service';
 
 
@@ -9,7 +9,7 @@ class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
     this.props.history.push('/')
-  }
+  };
 
   //if user is logged in
   renderLogoutLink() {
@@ -33,8 +33,8 @@ class Header extends Component {
         </Link>
         
       </div>
-    )
-  }
+    );
+  };
 
   //if user is not logged in
   renderLoginLink() {
@@ -51,8 +51,8 @@ class Header extends Component {
           Register
         </Link>
       </div>
-    )
-  }
+    );
+  };
 
 
   render() {
@@ -70,8 +70,8 @@ class Header extends Component {
           : this.renderLoginLink()}
         </span>
       </nav>
-    )
-  }
-}
+    );
+  };
+};
 
-export default Header
+export default Header;

@@ -1,98 +1,97 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CharacterContext from '../../context/CharacterContext';
-import './EditCharacter.css'
+import './EditCharacter.css';
 
 class EditCharacter extends Component {
-  state = {}
+  state = {};
 
-  static contextType = CharacterContext
+  static contextType = CharacterContext;
 
   componentDidMount() {
     //gets the user's characters
-    this.context.fetchCharacters()
-  }
+    this.context.fetchCharacters();
+  };
 
   //set**** methods sets **** in the state
   setFirstName = (newFirstName) => {
     this.setState({
       first_name: newFirstName
-    })
-  } 
+    });
+  };
 
   setLastName = (newLastName) => {
     this.setState({
       last_name: newLastName
-    })
-  } 
+    });
+  };
 
   setAge = (newAge) => {
     this.setState({
       age: newAge
-    })
-  }
+    });
+  };
 
   setSex = (newSex) => {
     this.setState({
       sex: newSex
-    })
-  }
+    });
+  };
 
   setMajorTrait = (newMajorTrait) => {
     this.setState({
       major_trait: newMajorTrait
-    })
-  } 
+    });
+  };
 
   setFear = (newFear) => {
     this.setState({
       fear: newFear
-    })
-  }
+    });
+  };
 
   setMotivation = (newMotivation) => {
     this.setState({
       motivation: newMotivation
-    })
-  }
+    });
+  };
 
   setHistory = (newHistory) => {
     this.setState({
       history: newHistory
-    })
-  }
+    });
+  };
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    //sends a path request to update the character
-    const characterId = this.props.match.params.character_id
-    const editChara = { ...this.state }
+    e.preventDefault();
+    //sends a patch request to update the character
+    const characterId = this.props.match.params.character_id;
+    const editChara = { ...this.state };
     this.context.editCharacter(characterId, editChara)
       .then(() => {
         this.props.history.push(`/character-list`)
-      })
-  }
+      });
+  };
 
   handleDelete = (e) => {
-    e.preventDefault()
-    //sets the 'status' to 'deleted', effectively 'deleting' the character
-    const characterId = this.props.match.params.character_id
+    e.preventDefault();
+    //sets the 'status' to 'deleted', effectively 'deleting' the character while retaining their info
+    const characterId = this.props.match.params.character_id;
     this.context.deleteCharacter(characterId)
       .then(() => {
       this.props.history.push('/character-list')
-    })
-  }
+    });
+  };
   
   render() {
-    let characters = this.context.charaList
+    let characters = this.context.charaList;
     if(!characters || !characters.length) {
       return (
         <p className='character-loading'>Loading Character</p>
-      )
+      );
     } else {
-      let id = this.props.match.params.character_id
-      // eslint-disable-next-line eqeqeq
-      let character = characters.find(chara => chara.id == id)
+      let id = this.props.match.params.character_id;
+      let character = characters.find(chara => chara.id == id);
         if(!character) {
           return <p>Redirecting</p>
         } else {
@@ -160,11 +159,11 @@ class EditCharacter extends Component {
                   <Link to='/character-list'><button className='button-on-edit' type='button' onClick={(e) => {if (window.confirm('Are you sure you wish to delete this character?')) this.handleDelete(e)}}>Delete character</button></Link>
                 </form>
               </section>
-          )
+          );
         }
 
     }
-  }
-}
+  };
+};
 
-export default EditCharacter
+export default EditCharacter;

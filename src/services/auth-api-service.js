@@ -13,12 +13,12 @@ const AuthApiService = {
       .then(res => {
         return (!res.ok)
           ? res.json().then(e => Promise.reject(e))
-          : res.json()
+          : res.json();
       })
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
-        return res
-      })
+        TokenService.saveAuthToken(res.authToken);
+        return res;
+      });
   },
 
   postUser(user) {
@@ -33,10 +33,10 @@ const AuthApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
 
 
-}
+};
 
-export default AuthApiService
+export default AuthApiService;

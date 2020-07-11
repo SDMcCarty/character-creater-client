@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import CharacterContext from '../../context/CharacterContext'
-import './Review-Character.css'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import CharacterContext from '../../context/CharacterContext';
+import './Review-Character.css';
 
 class ReviewCharacter extends Component {
-  static contextType = CharacterContext
+  static contextType = CharacterContext;
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     //saves the new character
     this.context.saveNewCharacter()
     .then(() => {
-      this.props.history.push('/character-list')
-    })
-  }
+      this.props.history.push('/character-list');
+    });
+  };
 
   render() {
-    const newCharacter = this.context.newChara
+    const newCharacter = this.context.newChara;
     return (
       <section className='review-character-section'>
         <h2 className='page-heading'>Save Your Character!</h2>
@@ -34,8 +34,8 @@ class ReviewCharacter extends Component {
         <button className='review-button' type='submit' onClick={this.handleSubmit}>Save Character</button>
         <Link to='/create'><button className='review-button' type='button'>Delete and start again</button></Link>
       </section>
-    )
-  }
-}
+    );
+  };
+};
 
-export default ReviewCharacter
+export default ReviewCharacter;

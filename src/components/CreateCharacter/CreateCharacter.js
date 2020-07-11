@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import CharacterContext from '../../context/CharacterContext'
-import GetRandom from '../Utils/GetRandom'
-import './CreateCharacter.css'
+import CharacterContext from '../../context/CharacterContext';
+import GetRandom from '../Utils/GetRandom';
+import './CreateCharacter.css';
 
 class CreateCharacter extends Component {
-  static contextType = CharacterContext
+  static contextType = CharacterContext;
 
   state = {
     first_name: '',
@@ -21,59 +21,59 @@ class CreateCharacter extends Component {
   setFirstName = (newFirstName) => {
     this.setState({
       first_name: newFirstName
-    })
-  } 
+    });
+  };
 
   setLastName = (newLastName) => {
     this.setState({
       last_name: newLastName
-    })
-  } 
+    });
+  }; 
 
   setAge = (newAge) => {
     this.setState({
       age: newAge
-    })
-  }
+    });
+  };
 
   setSex = (newSex) => {
     this.setState({
       sex: newSex
-    })
-  }
+    });
+  };
 
   setMajorTrait = (newMajorTrait) => {
     this.setState({
       major_trait: newMajorTrait
-    })
-  } 
+    });
+  }; 
 
   setFear = (newFear) => {
     this.setState({
       fear: newFear
-    })
-  }
+    });
+  };
 
   setMotivation = (newMotivation) => {
     this.setState({
       motivation: newMotivation
-    })
-  }
+    });
+  };
 
   setHistory = (newHistory) => {
     this.setState({
       history: newHistory
-    })
-  }
+    });
+  };
 
   randomizeAll = (character) => {
-    this.setState({ ...character })
-  }
+    this.setState({ ...character });
+  };
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    this.context.setNewCharacter(this.state)
-    this.props.history.push('/review-character')
+    e.preventDefault();
+    this.context.setNewCharacter(this.state);
+    this.props.history.push('/review-character');
   }
   
   render() {
@@ -168,8 +168,8 @@ class CreateCharacter extends Component {
           <p className='required-warning'>* denotes required fields (can be edited later)</p>
         </form>
       </section>
-    )
-  }
-}
+    );
+  };
+};
 
-export default CreateCharacter
+export default CreateCharacter;
