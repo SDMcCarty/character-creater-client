@@ -12,13 +12,11 @@ header {
   margin-right: auto;
   margin-bottom: 15px;
   margin-top: -20px;
-  /* border: 1px solid black; */
 }
 
 .header-link {
   text-decoration: none;
   color: #4B0082;
-  /* border: 1px solid magenta; */
 }
 
 .header-link:hover {
@@ -36,7 +34,6 @@ h1 {
   line-height: 1em;
   margin: 0px;
   font-size: 1.2em;
-  /* border: 1px solid blue; */
 }
 
 .icon {
@@ -48,7 +45,6 @@ h1 {
 .Header__logged-in, .Header__not-logged-in {
   line-height: 1em;
   font-size: 0.9em;
-  /* border: 1px solid green; */
 }
 
 .log-link {
@@ -56,11 +52,17 @@ h1 {
   font-size: 0.9em;
   text-decoration: none;
   word-spacing: -3px;
-  padding: 3px;
+  padding-right: 8px;
 }
 
 .log-link:hover {
   color: #367D78;
+}
+
+@media screen and (min-width: 360px) {
+  .log-link {
+    padding-right: 12px;
+  }
 }
 
 @media screen and (min-width: 380px) {
@@ -75,8 +77,7 @@ h1 {
     line-height: 1.3em;
   }
   .log-link {
-    text-decoration: none;
-    padding: 10px;
+    padding: 14px;
   }
 }
 
@@ -90,6 +91,6 @@ h1 {
   }
   .log-link {
     text-decoration: none;
-    padding: 10px;
+    padding: 18px;
   }
 }
