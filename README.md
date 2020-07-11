@@ -19,22 +19,22 @@ Mobile View
 ![Image of Mobile View](docs/MobileView.png)
 
 Login Page
-[Screenshot](docs/Login.png)
+![Image of Login Page](docs/Login.png)
 
 Homepage
-[Screenshot](docs/Homepage.png)
+![Image of Homepage](docs/Homepage.png)
 
 Create Character Page
-[Screenshot](docs/CreateCharacter.png)
+![Image of Create Character Page](docs/CreateCharacter.png)
 
 Save Character Page
-[Screenshot](docs/SaveCharacter.png)
+![Image of Save Character Page](docs/SaveCharacter.png)
 
 Character List Page
-[Screenshot](docs/CharacterList.png)
+![Image of Character List Page](docs/CharacterList.png)
 
 Edit Character Page
-[Screenshot](docs/EditCharacter.png)
+![Image of Edit Character Page](docs/EditCharacter.png)
 
 ## TECH STACK
 
@@ -85,8 +85,8 @@ https://maple-minister-95148.herokuapp.com/
 
 * '/api/auth': grants authorization to users so they can fetch their characters.
 
-[Screenshot](docs/Example001.png)
-[Screenshot](docs/Example002.png)
+![Image of Example Response](docs/Example001.png)
+![Image of Example Response](docs/Example002.png)
 
 ## SUMMARY
 
