@@ -10,5 +10,5 @@ it('should render the full registeration page', () => {
       <RegisterPage />
     </BrowserRouter>,
     div);
-    ReactDOM.unmountComponentAtNode(div)
-})
+    ReactDOM.unmountComponentAtNode(div);
+});

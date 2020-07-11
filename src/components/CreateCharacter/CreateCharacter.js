@@ -77,7 +77,7 @@ class CreateCharacter extends Component {
   }
   
   render() {
-    return(
+    return (
       <section aria-label='create character form'>
         <h2 className='page-heading'>Create Your Character!</h2>
         <p className='create-intro'>Please enter your character's information below or click 'Randomize' for a prompt to help get those creative juices flowing</p>

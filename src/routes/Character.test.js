@@ -11,4 +11,4 @@ it('renders the character to the page', () => {
     </BrowserRouter>,
     div);
   ReactDOM.unmountComponentAtNode(div);
-})
+});

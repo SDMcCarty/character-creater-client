@@ -19,14 +19,14 @@ class RegistrationFrom extends Component {
       email: email.value
     })
     .then(user => {
-      user_name.value = ''
-      password.value = ''
-      email.value = ''
-      this.props.onRegisterSuccess()
+      user_name.value = '';
+      password.value = '';
+      email.value = '';
+      this.props.onRegisterSuccess();
     })
     .catch(res => {
-      console.log(res.error)
-      this.setState({ error: res.error })
+      console.log(res.error);
+      this.setState({ error: res.error });
     });
   };
 

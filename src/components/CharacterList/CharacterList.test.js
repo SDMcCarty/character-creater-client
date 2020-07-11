@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-// import { shallow } from 'enzyme';
-// import toJson from 'enzyme-to-json';
 import CharacterList from './CharacterList';
 
 describe('Character List', () => {
@@ -12,4 +10,4 @@ describe('Character List', () => {
     ReactDOM.render(<BrowserRouter><CharacterList /></BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-})
+});

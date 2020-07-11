@@ -19,6 +19,6 @@ function PrivateRoute({ component, ...props }) {
           }}
     />
   );
-};
+}
 
 export default PrivateRoute;

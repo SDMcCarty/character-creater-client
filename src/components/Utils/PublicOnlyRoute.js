@@ -14,6 +14,6 @@ function PublicOnlyRoute({ component, ...props }) {
       )}
     />
   );
-};
+}
 
 export default PublicOnlyRoute;

@@ -11,4 +11,4 @@ it('renders the full login page', () => {
     </BrowserRouter>,
     div);
   ReactDOM.unmountComponentAtNode(div);
-})
+});

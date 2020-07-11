@@ -161,7 +161,6 @@ class EditCharacter extends Component {
               </section>
           );
         }
-
     }
   };
 };
