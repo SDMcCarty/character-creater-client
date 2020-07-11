@@ -6,7 +6,7 @@ Kartara is an app to help creators keep all of their character information in on
 
 ## TEST USER
 
-user: USER
+user: User
 password: P@ssword123
 
 ## LINK
