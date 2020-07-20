@@ -17,6 +17,11 @@ componentDidMount() {
       <section aria-label='Your character list'>
         <h2 className='page-heading'>Your characters</h2>
         <p className='list-intro'>Select a character below to see more information or start creating a new character</p>
+        <select name='sort'>
+          <option name='sort-box' value=''>Sort by...</option>
+          <option name='by-first-name' value='first-name'>First Name</option>
+          <option name='by-last-name' value='last-name'>Last Name</option>
+        </select>
         <ul>
           {characters.map(character => 
             <Link key={character.id} to={`/characters/${character.id}`} className='characterList-link'>
